@@ -1,0 +1,2 @@
+﻿CREATE USER [RAMUser] FOR LOGIN [RAMUser];
+

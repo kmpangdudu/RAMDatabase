@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [crd]
+    AUTHORIZATION [RAMUser];
+

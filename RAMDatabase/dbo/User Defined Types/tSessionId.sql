@@ -1,0 +1,8 @@
+﻿CREATE TYPE [dbo].[tSessionId]
+    FROM NVARCHAR (88) NOT NULL;
+
+
+GO
+GRANT REFERENCES
+    ON TYPE::[dbo].[tSessionId] TO PUBLIC;
+

@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[apilog] (
+    [apilogid]    BIGINT           IDENTITY (1, 1) NOT NULL,
+    [logdate]     DATE             CONSTRAINT [DF_apilog_logdate] DEFAULT (CONVERT([date],getdate())) NULL,
+    [logtime]     TIME (7)         CONSTRAINT [DF_apilog_logtime] DEFAULT (CONVERT([time](2),getdate())) NULL,
+    [dbschema]    NVARCHAR (50)    NULL,
+    [csmethod]    NVARCHAR (50)    NULL,
+    [format]      NVARCHAR (50)    NULL,
+    [para]        NVARCHAR (50)    NULL,
+    [lang]        NVARCHAR (50)    CONSTRAINT [DF_apilog_lang] DEFAULT (N'en') NULL,
+    [aclid]       INT              NULL,
+    [aclName]     NVARCHAR (255)   NULL,
+    [cscontent]   NVARCHAR (50)    NULL,
+    [csendpoint]  NVARCHAR (50)    NULL,
+    [keywords]    NVARCHAR (4000)  NULL,
+    [csip]        NVARCHAR (50)    NULL,
+    [cscountry]   NVARCHAR (50)    NULL,
+    [csregion]    NVARCHAR (50)    NULL,
+    [cscity]      NVARCHAR (255)   NULL,
+    [latitude]    NUMERIC (18, 10) NULL,
+    [longitude]   NUMERIC (18, 10) NULL,
+    [csstatus]    NVARCHAR (50)    NULL,
+    [cscode]      INT              NULL,
+    [cshost]      NVARCHAR (50)    NULL,
+    [csurl]       NVARCHAR (1000)  NULL,
+    [csuseragent] NVARCHAR (1000)  NULL,
+    CONSTRAINT [PK_apilog] PRIMARY KEY CLUSTERED ([apilogid] ASC)
+);
+

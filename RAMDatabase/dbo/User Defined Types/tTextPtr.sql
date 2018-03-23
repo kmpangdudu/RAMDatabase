@@ -1,0 +1,8 @@
+﻿CREATE TYPE [dbo].[tTextPtr]
+    FROM VARBINARY (16) NULL;
+
+
+GO
+GRANT REFERENCES
+    ON TYPE::[dbo].[tTextPtr] TO PUBLIC;
+

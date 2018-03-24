@@ -1322,6 +1322,7 @@
     <Build Include="adjustment\Mountain view%28SEO) Toronto.sql" />
     <Build Include="adjustment\Mountain view%28SEO) Winnipeg.sql" />
     <Build Include="adjustment\Tester_2__Small.sql" />
+    <Build Include="adjustment\CertainCity_2__London.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="adjustment\Small city.xlsx" />

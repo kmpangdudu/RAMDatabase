@@ -1323,6 +1323,7 @@
     <Build Include="adjustment\Mountain view%28SEO) Winnipeg.sql" />
     <Build Include="adjustment\Tester_2__Small.sql" />
     <Build Include="adjustment\CertainCity_2__London.sql" />
+    <Build Include="adjustment\CertainCity_2__Major_City_In_Date_Range.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="adjustment\Small city.xlsx" />

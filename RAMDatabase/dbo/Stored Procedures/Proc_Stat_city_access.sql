@@ -25,8 +25,8 @@ select @City = LTRIM(RTRIM(@City));
 IF @province = N'any' or @province = N'all' or @province = N''
 	begin
 	--  Victoria, BC - how many times was RAM used with Victoria as a search city in 2017. --    answer = 83
-		SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  @enddate   ,   count(apilogid) as [vistors]
-		FROM [RAM].[dbo].[apilog]   where   logdate <= @enddate  and logdate >= @startdate;
+		SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate)   ,   count(apilogid) as [vistors]
+		FROM [RAM].[dbo].[apilog]   where     logdate >= @startdate    and    logdate < @enddate ;
 	--  Victoria, BC - what was the top category searched throughout 2017?  --  
 			select [apilogid]
 			  ,[logdate]
@@ -43,10 +43,10 @@ IF @province = N'any' or @province = N'all' or @province = N''
 			  ,[csurl] 
 			INTO #ORG
 			FROM [dbo].[apilog]
-			where (logdate >= @startdate) and (logdate <= @enddate)
+			where (logdate >= @startdate) and (logdate < @enddate)
 		;
 
-		select [City] = @City,   [Provine] = @province,   [From] = @startdate, [To] =  @enddate   ,  t.TopCategory as [Searched Category] , count(a.keywords) as [Searched Times] 
+		select [City] = @City,   [Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate)   ,  t.TopCategory as [Searched Category] , count(a.keywords) as [Searched Times] 
 		from
 		(select keywords from #org where  cscontent = 'topcategory'
 		union all
@@ -61,8 +61,8 @@ else -- 明确的省市
 		IF @City = N'any' or @City = N'all' or @City = N''
 			BEGIN  ---明确的省, 全部的市
 			--  Victoria, BC - how many times was RAM used with Victoria as a search city in 2017. --    answer = 83
-				SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  @enddate,   count(apilogid) as [vistors]    
-				FROM [RAM].[dbo].[apilog]   where csregion = @province   and logdate <= @enddate  and logdate >= @startdate;
+				SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate),   count(apilogid) as [vistors]    
+				FROM [RAM].[dbo].[apilog]   where csregion = @province   and  logdate >= @startdate  and   logdate < @enddate      ;
 			--  Victoria, BC - what was the top category searched throughout 2017?  -- 
 				select [apilogid]
 					  ,[logdate]
@@ -79,10 +79,10 @@ else -- 明确的省市
 					  ,[csurl] 
 					INTO #ORG_filtered_Prov
 					FROM [dbo].[apilog]
-					where csregion = @province   and (logdate >= @startdate) and (logdate <= @enddate)
+					where csregion = @province   and (logdate >= @startdate) and (logdate < @enddate)
 				;
 
-				select [City] = @City,   [Provine] = @province,   [From] = @startdate, [To] =  @enddate   ,  t.TopCategory as [Searched Category] , count(a.keywords) as [Searched Times] 
+				select [City] = @City,   [Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate)   ,  t.TopCategory as [Searched Category] , count(a.keywords) as [Searched Times] 
 				from
 				(select keywords from #ORG_filtered_Prov where  cscontent = 'topcategory'
 				union all
@@ -96,8 +96,8 @@ else -- 明确的省市
 		ELSE
 			BEGIN --明确的省市
 		--  Victoria, BC - how many times was RAM used with Victoria as a search city in 2017. --    answer = 83
-			SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  @enddate,   count(apilogid) as [vistors]    
-			FROM [RAM].[dbo].[apilog]   where csregion = @province and cscity = @City and logdate <= @enddate  and logdate >= @startdate;
+			SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate),   count(apilogid) as [vistors]    
+			FROM [RAM].[dbo].[apilog]   where csregion = @province and cscity = @City   and logdate >= @startdate     and   logdate < @enddate ;
 		--  Victoria, BC - what was the top category searched throughout 2017?  -- 
 			select [apilogid]
 				  ,[logdate]
@@ -114,10 +114,10 @@ else -- 明确的省市
 				  ,[csurl] 
 				INTO #ORG_filtered
 				FROM [dbo].[apilog]
-				where csregion = @province and cscity = @City  and (logdate >= @startdate) and (logdate <= @enddate)
+				where csregion = @province and cscity = @City  and (logdate >= @startdate) and (logdate < @enddate)
 			;
 
-			select [City] = @City,   [Provine] = @province,   [From] = @startdate, [To] =  @enddate   ,  t.TopCategory as [Searched Category] , count(a.keywords) as [Searched Times] 
+			select [City] = @City,   [Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate)   ,  t.TopCategory as [Searched Category] , count(a.keywords) as [Searched Times] 
 			from
 			(select keywords from #ORG_filtered where  cscontent = 'topcategory'
 			union all

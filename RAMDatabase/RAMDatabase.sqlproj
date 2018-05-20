@@ -1303,12 +1303,6 @@
     <Build Include="Security\yos.sql" />
     <Build Include="Storage\freetext.sql" />
     <Build Include="Security\Permissions.sql" />
-    <Build Include="adjustment\CertainCity_2__Calgary.sql" />
-    <Build Include="adjustment\CertainCity_2__Edmonton.sql" />
-    <Build Include="adjustment\CertainCity_2__Halifax.sql" />
-    <Build Include="adjustment\CertainCity_2__Major_City.sql" />
-    <Build Include="adjustment\CertainCity_2__Small.sql" />
-    <Build Include="adjustment\CertainCity_2__Winnipeg.sql" />
     <Build Include="adjustment\cheang clicked program.sql" />
     <Build Include="adjustment\Mountain view%28SEO) Calgary.sql" />
     <Build Include="adjustment\Mountain view%28SEO) Edmonton.sql" />
@@ -1322,11 +1316,19 @@
     <Build Include="adjustment\Mountain view%28SEO) Toronto.sql" />
     <Build Include="adjustment\Mountain view%28SEO) Winnipeg.sql" />
     <Build Include="adjustment\Tester_2__Small.sql" />
-    <Build Include="adjustment\CertainCity_2__London.sql" />
-    <Build Include="adjustment\CertainCity_2__Major_City_In_Date_Range.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="adjustment\Small city.xlsx" />
     <None Include="adjustment\User Manual.docx" />
+    <None Include="adjustment\CertainCity_2__Calgary.sql" />
+    <None Include="adjustment\CertainCity_2__Major_City.sql" />
+    <None Include="adjustment\CertainCity_2__Small.sql" />
+    <None Include="adjustment\CertainCity_2__Edmonton.sql" />
+    <None Include="adjustment\CertainCity_2__Halifax.sql" />
+    <None Include="adjustment\CertainCity_2__London.sql" />
+    <None Include="adjustment\CertainCity_2__Winnipeg.sql" />
+    <None Include="adjustment\CertainCity_2__Major_City_In_Date_Range.sql" />
+    <None Include="adjustment\Watch_lastweek_status.sql" />
+    <None Include="adjustment\CertainCity_2__Small_In_Date_Range.sql" />
   </ItemGroup>
 </Project>

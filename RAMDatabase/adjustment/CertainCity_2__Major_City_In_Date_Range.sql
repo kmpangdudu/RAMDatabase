@@ -6,9 +6,9 @@
 -- DECLARE @willchangeCity NVARCHAR(100)  = N'Montréal'  要将那个城市的记录压缩掉
 ----------------------------------------------------------------------------------------------------------------------------
 --  offen changing city list 
---  Montréal          Beauharnois  Kelowna   Toronto , 
---  Fredericton, NB, CA
--- Kitchener, ON, CA
+--  Montréal  ,      Beauharnois ,  Kelowna ,  Toronto , Barrière ,   Maniwaki,  
+--  Fredericton, NB, Banff, Maniwaki, QC, Surrey, BC,   Norway House, MB
+-- Kitchener, ON, Sainte-thérèse,   
 ------------------------------------
 -- Canada major City
 ------------------------------------

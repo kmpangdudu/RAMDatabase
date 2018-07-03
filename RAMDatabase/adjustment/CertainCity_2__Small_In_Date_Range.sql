@@ -6,8 +6,8 @@
 -- DECLARE @willchangeCity NVARCHAR(100)  = N'Montréal'  要将那个城市的记录压缩掉
 ----------------------------------------------------------------------------------------------------------------------------
 --  offen changing city list 
---  Montréal          Beauharnois     Kelowna, BC, CA, Airdrie, AB, CA
---  Fredericton, NB, CA, Warman, SK, CA
+--  Montréal ,Toronto ,  Ottawa  ,   Beauharnois     Kelowna, BC, CA, Airdrie, AB, CA
+--  Fredericton, NB, CA, Warman, SK, Surrey, BC, ,Banff, 
 -- Kitchener, ON, CA, Maniwaki, QC, CA  Stony Mountain, MB, CA, Norway House, MB, CA
 -------------------------------
 -- CANADA Smaller town 

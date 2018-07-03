@@ -1,4 +1,5 @@
-﻿DECLARE @c NVARCHAR(50) = N'Surrey'
+﻿-- Barrière, Surrey, BC, Beauharnois, QC, Surrey, BC, Sainte-thérèse, QC, CA
+DECLARE @c NVARCHAR(50) = N'Surrey'
 DECLARE @SD date ='2018-05-13' --Start Sunday
 DECLARE @ED DATE = '2018-05-19' -- End Saturday
 SELECT * FROM ram.dbo.V_LastWeek_User_From_Top_30_City

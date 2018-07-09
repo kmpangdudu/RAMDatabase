@@ -144,6 +144,9 @@
     <Folder Include="yos\Stored Procedures\" />
     <Folder Include="dbo\User Defined Types\" />
     <Folder Include="adjustment" />
+    <Folder Include="iceCTI" />
+    <Folder Include="iceCTI\Stored Procedures" />
+    <Folder Include="iceCTI\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="crd\Tables\DIMTaxonomyCode.sql">
@@ -1316,6 +1319,24 @@
     <Build Include="adjustment\Mountain view%28SEO) Toronto.sql" />
     <Build Include="adjustment\Mountain view%28SEO) Winnipeg.sql" />
     <Build Include="adjustment\Tester_2__Small.sql" />
+    <Build Include="survey\Views\v_Chat_SurveyAnswer.sql" />
+    <Build Include="survey\Views\v_ChatApp_surveyAnswer.sql" />
+    <Build Include="survey\Views\v_SurveyLog.sql" />
+    <Build Include="survey\Views\v_surveyQuestion.sql" />
+    <Build Include="iceCTI\Stored Procedures\iceCTI.Proc_GetQueue.sql" />
+    <Build Include="iceCTI\Stored Procedures\iceCTI.Proc_Insert_Grade.sql" />
+    <Build Include="iceCTI\Stored Procedures\iceCTI.Proc_Last24Grade.sql" />
+    <Build Include="iceCTI\Tables\iceCTI.Grade.sql" />
+    <Build Include="iceCTI\Tables\iceCTI.Queue.sql" />
+    <Build Include="Security\iceCTI.sql" />
+    <Build Include="iceCTI\Stored Procedures\Proc_Last24Grade.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="iceCTI\Stored Procedures\Proc_Insert_Grade.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="adjustment\Small city.xlsx" />

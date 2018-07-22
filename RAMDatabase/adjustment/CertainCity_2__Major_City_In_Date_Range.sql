@@ -6,17 +6,17 @@
 -- DECLARE @willchangeCity NVARCHAR(100)  = N'Montréal'  要将那个城市的记录压缩掉
 ----------------------------------------------------------------------------------------------------------------------------
 --  offen changing city list 
---  Montréal  ,      Beauharnois ,  Kelowna ,  Toronto , Barrière ,   Maniwaki,  
+--  Montréal  ,      Beauharnois ,  Kelowna ,  Toronto , Barrière ,   Maniwaki,  Sainte-thérèse, QC 
 --  Fredericton, NB, Banff, Maniwaki, QC, Surrey, BC,   Norway House, MB
--- Kitchener, ON, Sainte-thérèse,   
+-- Kitchener, ON, Sainte-thérèse,   Surrey, BC, Ottawa, Barrie
 ------------------------------------
 -- Canada major City
 ------------------------------------
 USE RAM
 SET QUOTED_IDENTIFIER OFF;
 DECLARE @plan_Adj_num int =2;
-DECLARE @Adj_Start_Date DATE = '2018-05-13'  -- start Sunday 
-DECLARE @Adj_End_Date DATE = '2018-05-14'; -- end Saturday
+DECLARE @Adj_Start_Date DATE = '2018-07-13'  -- start Sunday 
+DECLARE @Adj_End_Date DATE = '2018-07-14'; -- end Saturday
 DECLARE @willchangeCity NVARCHAR(100)  = N'Surrey'
 
 

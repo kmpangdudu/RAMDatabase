@@ -7,15 +7,15 @@
 ----------------------------------------------------------------------------------------------------------------------------
 --  offen changing city list 
 --  Montréal ,Toronto ,  Ottawa  ,   Beauharnois     Kelowna, BC, CA, Airdrie, AB, CA
---  Fredericton, NB, CA, Warman, SK, Surrey, BC, ,Banff, 
+--  Fredericton, NB, CA, Warman, SK, Surrey, BC, ,Banff, Surrey, BC, Barrie, ON, CA
 -- Kitchener, ON, CA, Maniwaki, QC, CA  Stony Mountain, MB, CA, Norway House, MB, CA
 -------------------------------
 -- CANADA Smaller town 
 -------------------------------
 SET QUOTED_IDENTIFIER OFF;
 DECLARE @plan_Adj_num int =5;
-DECLARE @Adj_Start_Date DATE = '2018-05-13'  -- start Sunday 
-DECLARE @Adj_End_Date DATE = '2018-05-19'; -- end Saturday
+DECLARE @Adj_Start_Date DATE = '2018-07-13'  -- start Sunday 
+DECLARE @Adj_End_Date DATE = '2018-07-19'; -- end Saturday
 DECLARE @willchangeCity NVARCHAR(100)  = N'Surrey'
 
 

@@ -1,5 +1,7 @@
 ﻿CREATE TABLE [iceCTI].[Grade] (
     [GradeID]                            INT      IDENTITY (1, 1) NOT NULL,
+    [CreatedDate]                        DATETIME CONSTRAINT [DF_grade_CreatedDate] DEFAULT (getdate()) NULL,
+    [changedDate]                        DATETIME NULL,
     [PhoneEn_NumhundledLessThanTarget]   INT      NULL,
     [PhoneFr_NumhundledLessThanTarget]   INT      NULL,
     [G2TEn_NumhundledLessThanTarget]     INT      NULL,
@@ -16,8 +18,24 @@
     [ChatFr_NumOffered]                  INT      NULL,
     [ChatAppEn_NumOffered]               INT      NULL,
     [ChatAppFr_NumOffered]               INT      NULL,
-    [changedDate]                        DATETIME NULL,
-    [CreatedDate]                        DATETIME CONSTRAINT [DF_grade_CreatedDate] DEFAULT (getdate()) NULL,
+    [PhoneEn_HandledInQueue]             INT      NULL,
+    [PhoneFr_HandledInQueue]             INT      NULL,
+    [G2TEn_HandledInQueue]               INT      NULL,
+    [G2TFr_HandledInQueue]               INT      NULL,
+    [ChatEn_HandledInQueue]              INT      NULL,
+    [ChatFr_HandledInQueue]              INT      NULL,
+    [ChartAppEn_HandledInQueue]          INT      NULL,
+    [ChatAppFr_HandledInQueue]           INT      NULL,
+    [PhoneEn_EstimatedWaitTime]          INT      NULL,
+    [PhoneFr_EstimatedWaitTime]          INT      NULL,
+    [G2TEn_EstimatedWaitTime]            INT      NULL,
+    [G2TFr_EstimatedWaitTime]            INT      NULL,
+    [ChatEn_EstimatedWaitTime]           INT      NULL,
+    [ChatFr_EstimatedWaitTime]           INT      NULL,
+    [ChartAppEn_EstimatedWaitTime]       INT      NULL,
+    [ChatAppFr_EstimatedWaitTime]        INT      NULL,
     CONSTRAINT [PK_grade] PRIMARY KEY CLUSTERED ([GradeID] ASC)
 );
+
+
 

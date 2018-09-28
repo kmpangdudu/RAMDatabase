@@ -15,8 +15,8 @@
 USE RAM
 SET QUOTED_IDENTIFIER OFF;
 DECLARE @plan_Adj_num int =2;
-DECLARE @Adj_Start_Date DATE = '2018-07-13'  -- start Sunday 
-DECLARE @Adj_End_Date DATE = '2018-07-14'; -- end Saturday
+DECLARE @Adj_Start_Date DATE = '2018-09-17'  -- start Sunday 
+DECLARE @Adj_End_Date DATE = '2018-09-19'; -- end Saturday
 DECLARE @willchangeCity NVARCHAR(100)  = N'Surrey'
 
 

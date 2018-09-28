@@ -1,5 +1,5 @@
 ﻿
-CREATE Procedure [iceCTI].[Proc_Last24Grade]
+CREATE Procedure [iceCTI].[Proc_LastHourGrade]
 as
 Begin
 DECLARE @Phone_NumhundledLessThanTarget     decimal (16,2);  
@@ -13,7 +13,7 @@ DECLARE @Chat_NumOffered					decimal (16,2);
 DECLARE @ChatApp_NumOffered				    decimal (16,2); 
 
 declare @Now datetime = getdate (); 
-declare @Last24hr datetime = DATEADD (HOUR , -24 , @Now ) ;
+declare @Last24hr datetime = DATEADD (HOUR , -1 , @Now ) ;
 
 select 
 		--  @Phone_NumhundledLessThanTarget    = AVG ([PhoneEn_NumhundledLessThanTarget] + [PhoneFr_NumhundledLessThanTarget]    )
@@ -68,6 +68,7 @@ if @ChatApp_NumOffered =0.0
 select  @PhoneAllGrade = @PhoneGrade  ;
 
 select  @ChatAllGrade  = @ChatGrade ;
+
 
 
 

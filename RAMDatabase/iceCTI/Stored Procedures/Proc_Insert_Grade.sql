@@ -13,22 +13,39 @@
 -- =======================================================================================================================================
 CREATE PROCEDURE [iceCTI].[Proc_Insert_Grade] 
  
- @PhoneEn_NumhundledLessThanTarget    decimal (6,2)= 0.0 ,
- @PhoneFr_NumhundledLessThanTarget    decimal (6,2)= 0.0 ,
- @G2TEn_NumhundledLessThanTarget	  decimal (6,2)= 0.0 ,
- @G2TFr_NumhundledLessThanTarget 	  decimal (6,2)= 0.0 ,
- @ChatEn_NumhundledLessThanTarget	  decimal (6,2)= 0.0 ,
- @ChatFr_NumhundledLessThanTarget	  decimal (6,2)= 0.0 ,
- @ChatAppEn_NumhundledLessThanTarget  decimal (6,2)= 0.0 ,
- @ChatAppFr_NumhundledLessThanTarget  decimal (6,2)= 0.0 ,
- @PhoneEn_NumOffered				  decimal (6,2)= 0.0 ,
- @PhoneFr_NumOffered				  decimal (6,2)= 0.0 ,
- @G2TEn_NumOffered					  decimal (6,2)= 0.0 ,
- @G2TFr_NumOffered					  decimal (6,2)= 0.0 ,
- @ChatEn_NumOffered					  decimal (6,2)= 0.0 ,
- @ChatFr_NumOffered					  decimal (6,2)= 0.0 ,
- @ChatAppEn_NumOffered				  decimal (6,2)= 0.0 ,
- @ChatAppFr_NumOffered				  decimal (6,2)= 0.0 
+     @PhoneEn_NumhundledLessThanTarget       decimal (18,2) = 0.0 
+    , @PhoneFr_NumhundledLessThanTarget      decimal (18,2) = 0.0 
+    , @G2TEn_NumhundledLessThanTarget	     decimal (18,2) = 0.0 
+    , @G2TFr_NumhundledLessThanTarget 	     decimal (18,2) = 0.0 
+    , @ChatEn_NumhundledLessThanTarget	     decimal (18,2) = 0.0 
+    , @ChatFr_NumhundledLessThanTarget	     decimal (18,2) = 0.0 
+    , @ChatAppEn_NumhundledLessThanTarget    decimal (18,2) = 0.0 
+    , @ChatAppFr_NumhundledLessThanTarget    decimal (18,2) = 0.0 
+    , @PhoneEn_NumOffered				     decimal (18,2) = 0.0 
+    , @PhoneFr_NumOffered				     decimal (18,2) = 0.0 
+    , @G2TEn_NumOffered					     decimal (18,2) = 0.0 
+    , @G2TFr_NumOffered					     decimal (18,2) = 0.0 
+    , @ChatEn_NumOffered				     decimal (18,2) = 0.0 
+    , @ChatFr_NumOffered				     decimal (18,2) = 0.0 
+    , @ChatAppEn_NumOffered				     decimal (18,2) = 0.0 
+    , @ChatAppFr_NumOffered				     decimal (18,2) = 0.0 
+													 
+    , @PhoneEn_HandledInQueue                decimal (18,2) = 0.0
+	, @PhoneFr_HandledInQueue                decimal (18,2) = 0.0
+	, @G2TEn_HandledInQueue                  decimal (18,2) = 0.0
+	, @G2TFr_HandledInQueue                  decimal (18,2) = 0.0
+	, @ChatEn_HandledInQueue                 decimal (18,2) = 0.0
+	, @ChatFr_HandledInQueue                 decimal (18,2) = 0.0
+	, @ChartAppEn_HandledInQueue             decimal (18,2) = 0.0
+	, @ChatAppFr_HandledInQueue              decimal (18,2) = 0.0
+	, @PhoneEn_EstimatedWaitTime             decimal (18,2) = 0.0
+	, @PhoneFr_EstimatedWaitTime             decimal (18,2) = 0.0
+	, @G2TEn_EstimatedWaitTime               decimal (18,2) = 0.0
+	, @G2TFr_EstimatedWaitTime               decimal (18,2) = 0.0
+	, @ChatEn_EstimatedWaitTime              decimal (18,2) = 0.0
+	, @ChatFr_EstimatedWaitTime              decimal (18,2) = 0.0
+	, @ChartAppEn_EstimatedWaitTime          decimal (18,2) = 0.0
+	, @ChatAppFr_EstimatedWaitTime           decimal (18,2) = 0.0
 
  --@PhoneAllGrade Decimal output,
  --@PhoneGrade    decimal output,
@@ -52,27 +69,51 @@ BEGIN
 
  insert into iceCTI.grade 
  (
-  PhoneEn_NumhundledLessThanTarget    
+   CreatedDate
+ , PhoneEn_NumhundledLessThanTarget    
  , PhoneFr_NumhundledLessThanTarget    
  , G2TEn_NumhundledLessThanTarget	
- , G2TFr_NumhundledLessThanTarget 	
+ , G2TFr_NumhundledLessThanTarget
+  	
  , ChatEn_NumhundledLessThanTarget	
  , ChatFr_NumhundledLessThanTarget	
  , ChatAppEn_NumhundledLessThanTarget
  , ChatAppFr_NumhundledLessThanTarget
+
  , PhoneEn_NumOffered					
  , PhoneFr_NumOffered					
  , G2TEn_NumOffered					
- , G2TFr_NumOffered					
+ , G2TFr_NumOffered
+ 					
  , ChatEn_NumOffered					
  , ChatFr_NumOffered					
  , ChatAppEn_NumOffered				
  , ChatAppFr_NumOffered		
- , CreatedDate		
+
+ , PhoneEn_HandledInQueue      
+ , PhoneFr_HandledInQueue      
+ , G2TEn_HandledInQueue        
+ , G2TFr_HandledInQueue
+         
+ , ChatEn_HandledInQueue       
+ , ChatFr_HandledInQueue       
+ , ChartAppEn_HandledInQueue   
+ , ChatAppFr_HandledInQueue 
+    
+ , PhoneEn_EstimatedWaitTime   
+ , PhoneFr_EstimatedWaitTime   
+ , G2TEn_EstimatedWaitTime     
+ , G2TFr_EstimatedWaitTime
+     
+ , ChatEn_EstimatedWaitTime    
+ , ChatFr_EstimatedWaitTime    
+ , ChartAppEn_EstimatedWaitTime
+ , ChatAppFr_EstimatedWaitTime 		
  )
  VALUES
  (
-  @PhoneEn_NumhundledLessThanTarget     
+   @Now	
+ , @PhoneEn_NumhundledLessThanTarget     
  , @PhoneFr_NumhundledLessThanTarget     
  , @G2TEn_NumhundledLessThanTarget	 
  , @G2TFr_NumhundledLessThanTarget 	
@@ -91,8 +132,26 @@ BEGIN
  , @ChatFr_NumOffered					 
  , @ChatAppEn_NumOffered				 
  , @ChatAppFr_NumOffered	
-
- , @Now			 
+	 
+ , @PhoneEn_HandledInQueue      
+ , @PhoneFr_HandledInQueue      
+ , @G2TEn_HandledInQueue        
+ , @G2TFr_HandledInQueue    
+     
+ , @ChatEn_HandledInQueue       
+ , @ChatFr_HandledInQueue       
+ , @ChartAppEn_HandledInQueue   
+ , @ChatAppFr_HandledInQueue  
+   
+ , @PhoneEn_EstimatedWaitTime   
+ , @PhoneFr_EstimatedWaitTime   
+ , @G2TEn_EstimatedWaitTime     
+ , @G2TFr_EstimatedWaitTime    
+  
+ , @ChatEn_EstimatedWaitTime    
+ , @ChatFr_EstimatedWaitTime    
+ , @ChartAppEn_EstimatedWaitTime
+ , @ChatAppFr_EstimatedWaitTime 
  );
 
 

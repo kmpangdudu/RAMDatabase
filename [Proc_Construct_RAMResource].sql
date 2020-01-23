@@ -10,6 +10,8 @@
 -- 如果RAMResource记录是标识为 “BOTH” ； 就从表RAMResource 中删除那些，相同[ResourceAgencyNum]号，又配和标注为“mapped”或“LIST” 的那些记录
 -- 这样就解决了同一个记录出现在 map = BOTH ; 又再次出现再 Map= Mapped 或 Map = List 的情况
 
+-- 以上修改的存储过程，要替换掉 SSIS 中的Execute SQL Task （ SQL_Constructe_Tabel_RAMResource ）
+
 ALTER PROCEDURE [dbo].[Proc_Construct_RAMResource]
 with encryption
 AS

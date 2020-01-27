@@ -2,6 +2,13 @@
 -- Author:		William Chen
 -- Create date: 2017-10-23
 -- Description:	log data ware housing log
+-- updating: 2020-01-27 commented some "AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;"
+-- at select @RAMResource_fr = count(etlloadid)   from [dbo].[RAMResource] where LanguageOfRecord = 'fr' --  AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+-- select @RamResource=COUNT(etlloadid) from  [dbo].[RamResource] -- WHERE (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+-- select @mapped=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='mapped' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+-- select @Lists=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='List' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+-- select @Boths=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='Both' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+-- select @shelter=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='shelter' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
 -- =============================================
 ALTER PROCEDURE dbo.Proc_Datawarehousing
  

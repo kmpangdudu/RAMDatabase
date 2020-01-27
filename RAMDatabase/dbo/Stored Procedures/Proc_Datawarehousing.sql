@@ -1,10 +1,17 @@
-﻿-- =============================================
+-- =============================================
 -- Author:		William Chen
 -- Create date: 2017-10-23
 -- Description:	log data ware housing log
+-- updating: 2020-01-27 commented some "AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;"
+-- at select @RAMResource_fr = count(etlloadid)   from [dbo].[RAMResource] where LanguageOfRecord = 'fr' --  AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+-- select @RamResource=COUNT(etlloadid) from  [dbo].[RamResource] -- WHERE (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+-- select @mapped=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='mapped' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+-- select @Lists=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='List' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+-- select @Boths=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='Both' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+-- select @shelter=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='shelter' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
 -- =============================================
-CREATE PROCEDURE dbo.Proc_Datawarehousing
-
+ALTER PROCEDURE dbo.Proc_Datawarehousing
+ 
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -49,7 +56,7 @@ SELECT @Agency         = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE Taxonomy
 SELECT @Site           = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE TaxonomyLevelName = 'Site'
 SELECT @Program        = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE TaxonomyLevelName = 'Program'
 SELECT @ProgramAtSite  = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE TaxonomyLevelName = 'ProgramAtSite'
-select @RAMResource_fr = count(etlloadid)   from [dbo].[RAMResource] where LanguageOfRecord = 'fr' AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+select @RAMResource_fr = count(etlloadid)   from [dbo].[RAMResource] where LanguageOfRecord = 'fr' --  AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
 select @Coverage=COUNT(etlloadid) from [dbo].[Coverage];
 select @CustomEligibilitybyAge=COUNT(etlloadid) from [dbo].[CustomEligibilitybyAge];
 select @ETLLoadID_TaxonomyCode=COUNT(etlloadid) from [dbo].[ETLLoadID_TaxonomyCode];
@@ -60,11 +67,12 @@ select @ProgramRAW=COUNT(etlloadid) from [dbo].[ProgramRAW];
 select @RAMRAW=COUNT(etlloadid) from [dbo].[RAMRAW];
 select @TaxonomyRAW=COUNT(etlloadid) from [dbo].[TaxonomyRAW];
 select @SuggestionWord=COUNT(SuggestionWordid) from [dbo].[SuggestionWord];
-select @RamResource=COUNT(etlloadid) from  [dbo].[RamResource] WHERE (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
-select @mapped=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='mapped' AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
-select @Lists=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='List' AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
-select @Boths=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='Both' AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
-select @shelter=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='shelter' AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+
+select @RamResource=COUNT(etlloadid) from  [dbo].[RamResource] -- WHERE (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+select @mapped=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='mapped' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+select @Lists=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='List' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+select @Boths=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='Both' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
+select @shelter=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='shelter' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
 select distinct @publicname=count(etlloadid) from  [dbo].[RamResource] where Len(publicname ) <2;
 select distinct @LatLon=count(etlloadid) from  [dbo].[RamResource] where ( map='mapped' or map='both') and Latitude =0.0;
 select distinct @PhysicalAddress=count(ETLLoadID)  from  [dbo].[RamResource] where (map != 'shelter') and len(PhysicalAddress) <2;

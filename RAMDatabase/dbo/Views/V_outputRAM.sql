@@ -1,5 +1,4 @@
-﻿/****** Script for SelectTopNRows command from SSMS  ******/
-CREATE view V_outputRAM
+﻿CREATE view [dbo].[V_outputRAM]
 as
 SELECT 
        '"' + [ResourceAgencyNum] + '"' AS [ResourceAgencyNum]
@@ -32,7 +31,7 @@ SELECT
       ,'"' + [Coverage] + '"' AS [Coverage]
       ,'"' + [NormalWaitTime] + '"' AS [NormalWaitTime]
       ,'"' + CONVERT(VARCHAR,r.[createdDate]) + '"' AS [createdDate]
-  FROM [RAM].[dbo].[RamResource]  as r 
+  FROM [dbo].[RamResource]  as r 
   join [dbo].[TaxonomyLevelName] as tax on r.TaxonomyLevelNameID = tax.TaxonomyLevelNameID
   join [dbo].[SubCategory] as s on r.SubCategoryID = s.SubCategoryID
   join [dbo].[TopCategory] as t on r.TOPCategoryID = t.TopCategoryID

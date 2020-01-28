@@ -1,7 +1,11 @@
-﻿-- =============================================
+﻿
+-- =============================================
 -- Author:		William Chen
 -- Create date: Feb.9,2018
 -- Description:	某省，市在某时间段的访问量
+--              enddate 要加一天
+--              例如：  省： 'on'  ==> 安省，   '空'(不写)，或 'all' ==> 全部， 
+--                      市:  'mississauga' ==> 密西沙加，    '空'(不写)，或 'all' ==> 全部，
 -- =============================================
 CREATE PROCEDURE  [dbo].[Proc_Stat_city_access]
  @province nvarchar(50) = N'All',
@@ -25,8 +29,8 @@ select @City = LTRIM(RTRIM(@City));
 IF @province = N'any' or @province = N'all' or @province = N''
 	begin
 	--  Victoria, BC - how many times was RAM used with Victoria as a search city in 2017. --    answer = 83
-		SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate)   ,   count(apilogid) as [vistors]
-		FROM [RAM].[dbo].[apilog]   where     logdate >= @startdate    and    logdate < @enddate ;
+		SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate)   ,   count(apilogid) as [visitors]
+		FROM [dbo].[apilog]   where     logdate >= @startdate    and    logdate < @enddate ;
 	--  Victoria, BC - what was the top category searched throughout 2017?  --  
 			select [apilogid]
 			  ,[logdate]
@@ -61,8 +65,8 @@ else -- 明确的省市
 		IF @City = N'any' or @City = N'all' or @City = N''
 			BEGIN  ---明确的省, 全部的市
 			--  Victoria, BC - how many times was RAM used with Victoria as a search city in 2017. --    answer = 83
-				SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate),   count(apilogid) as [vistors]    
-				FROM [RAM].[dbo].[apilog]   where csregion = @province   and  logdate >= @startdate  and   logdate < @enddate      ;
+				SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate),   count(apilogid) as [visitors]    
+				FROM [dbo].[apilog]   where csregion = @province   and  logdate >= @startdate  and   logdate < @enddate      ;
 			--  Victoria, BC - what was the top category searched throughout 2017?  -- 
 				select [apilogid]
 					  ,[logdate]
@@ -96,8 +100,8 @@ else -- 明确的省市
 		ELSE
 			BEGIN --明确的省市
 		--  Victoria, BC - how many times was RAM used with Victoria as a search city in 2017. --    answer = 83
-			SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate),   count(apilogid) as [vistors]    
-			FROM [RAM].[dbo].[apilog]   where csregion = @province and cscity = @City   and logdate >= @startdate     and   logdate < @enddate ;
+			SELECT [City] = @City,[Provine] = @province,   [From] = @startdate, [To] =  DATEADD(day,-1, @enddate),   count(apilogid) as [visitors]    
+			FROM [dbo].[apilog]   where csregion = @province and cscity = @City   and logdate >= @startdate     and   logdate < @enddate ;
 		--  Victoria, BC - what was the top category searched throughout 2017?  -- 
 			select [apilogid]
 				  ,[logdate]

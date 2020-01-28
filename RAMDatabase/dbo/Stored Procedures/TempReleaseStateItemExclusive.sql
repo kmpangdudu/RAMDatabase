@@ -1,9 +1,9 @@
 ﻿
-        CREATE PROCEDURE dbo.TempReleaseStateItemExclusive
+        CREATE PROCEDURE [dbo].[TempReleaseStateItemExclusive]
             @id         tSessionId,
             @lockCookie int
         AS
-            UPDATE [RAM].dbo.ASPStateTempSessions
+            UPDATE  dbo.ASPStateTempSessions
             SET Expires = DATEADD(n, Timeout, GETUTCDATE()), 
                 Locked = 0
             WHERE SessionId = @id AND LockCookie = @lockCookie

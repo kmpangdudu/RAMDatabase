@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE Proc_Insert_Update_Table_TopCategory 
+CREATE PROCEDURE [dbo].[Proc_Insert_Update_Table_TopCategory] 
 	-- Add the parameters for the stored procedure here
 @TopCategory NVARCHAR(255),
 @TopCategoryDesc NVARCHAR(500) = N'',
@@ -17,16 +17,16 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-  IF EXISTS (SELECT TopCategoryid FROM [RAM].[dbo].[TopCategory] WHERE TopCategory = @TopCategory )
+  IF EXISTS (SELECT TopCategoryid FROM [dbo].[TopCategory] WHERE TopCategory = @TopCategory )
 	  BEGIN
-		  UPDATE [RAM].[dbo].[TopCategory] SET
+		  UPDATE [dbo].[TopCategory] SET
 		  Active = @Active,
 		  ChangedDate = GETDATE()
 		  WHERE TopCategory = @TopCategory
 	  END
 	ELSE
 		BEGIN
-			INSERT INTO [RAM].[dbo].[TopCategory] 
+			INSERT INTO [dbo].[TopCategory] 
 				([TopCategory],[TopCategoryDesc],[TopCategory_fr],[TopCategoryDesc_fr],[Active],[ChangedDate])
 			VALUES
 				(@TopCategory,@TopCategoryDesc,@TopCategory_fr,@TopCategoryDesc_fr,  @Active  ,  getdate())

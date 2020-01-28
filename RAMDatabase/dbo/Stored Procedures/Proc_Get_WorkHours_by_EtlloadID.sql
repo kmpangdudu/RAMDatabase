@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE Proc_Get_WorkHours_by_EtlloadID
+CREATE PROCEDURE [dbo].[Proc_Get_WorkHours_by_EtlloadID]
 	-- Add the parameters for the stored procedure here
 @ETLLOADID INT
 AS
@@ -15,5 +15,5 @@ BEGIN
 SELECT
        [ETLLoadID]
       ,[WorkHour]
-  FROM [RAM].[dbo].[WorkHour] WHERE [ETLLoadID] = @ETLLOADID
+  FROM [dbo].[WorkHour] WHERE [ETLLoadID] = @ETLLOADID
 END

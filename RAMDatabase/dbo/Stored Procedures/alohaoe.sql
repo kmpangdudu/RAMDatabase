@@ -1,9 +1,4 @@
-﻿-- =============================================
--- Author:		William Chen
--- Create date: March 3, 2018
--- Description:	Monitor RAM DB status
--- =============================================
-CREATE PROCEDURE [dbo].[alohaoe] 
+﻿CREATE PROCEDURE [dbo].[alohaoe] 
 @StartDay date = null,
 @Interval int = 15
  
@@ -88,14 +83,14 @@ select
 	end as [cscontent]
  
 	,   apilogid  ,[logdate]
-	from ram.dbo.apilog  
+	from dbo.apilog  
 	where csuseragent like '%bot%'
  
 union
 select 
 	 cscontent
 	,  apilogid ,[logdate]
-	from ram.dbo.apilog  
+	from dbo.apilog  
 	where   cscontent = 'unique'  and csuseragent not like '%bot%'
 
  ) as sourceTable 
@@ -155,7 +150,7 @@ select city as N'累计头10城(含加国问卷)' , NUm as N'数量' from [dbo].
 
 
 -- 本周头30个城市
-SELECT city as N'本周前30城(含加国问卷)',  num as N'数量'  FROM [RAM].[dbo].[V_ThisWeek_User_From_Top30_City]
+SELECT city as N'本周前30城(含加国问卷)',  num as N'数量'  FROM [dbo].[V_ThisWeek_User_From_Top30_City]
 
 
 -- all called, from Canada city, from other country 

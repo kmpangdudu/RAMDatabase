@@ -32,5 +32,5 @@ SELECT [ETLLoadID]
       ,[CustomServicesToLGBTQ]      ,[CustomAutomatedStatus]      ,[CustomEligibilitybyAge]      ,[CustomEligibilityByGender]      ,[CustomLanguagePrefer]
       ,[CustomBilingualService]      ,[CustomManualStatus]      ,[CustomMCYSAccountNumber]      ,[CustomAnonymityPolicy]      ,[CustomSuggestKeyword]
       ,[CustomRecordType]      ,[createdDate]
-  FROM [RAM].[dbo].[ETLLoad] 
+  FROM [dbo].[ETLLoad] 
 END

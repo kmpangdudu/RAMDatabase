@@ -19,18 +19,20 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-IF EXISTS (SELECT [InterestTaxonomyID] FROM [RAM].[dbo].[InterestTaxonomy] WHERE [InterestTaxonomyCode] = @InterestTaxonomyCode)
+IF EXISTS (SELECT [InterestTaxonomyID] FROM [dbo].[InterestTaxonomy] WHERE [InterestTaxonomyCode] = @InterestTaxonomyCode)
 	BEGIN
-		UPDATE [RAM].[dbo].[InterestTaxonomy] SET
+		UPDATE [dbo].[InterestTaxonomy] SET
 			[Active] = @Active,
 			[InterestTaxonomyDelivery] = @InterestTaxonomyDelivery,
 			[InterestTaxonomyTerms] = @InterestTaxonomyTerms,
+			[InterestTaxonomyDesc] = @InterestTaxonomyDesc,
+			[Phase] = @Phase,
 			[changedDate] = GETDATE()
 		WHERE [InterestTaxonomyCode] = @InterestTaxonomyCode
 	END
 ELSE
 	BEGIN
-		INSERT INTO [RAM].[dbo].[InterestTaxonomy]
+		INSERT INTO [dbo].[InterestTaxonomy]
 		([InterestTaxonomyID],[InterestTaxonomyDelivery],[InterestTaxonomyCode],[InterestTaxonomyTerms],[InterestTaxonomyDesc],[Active],[Phase],[changedDate])
 		VALUES 
 		(@InterestTaxonomyID, @InterestTaxonomyDelivery,@InterestTaxonomyCode,@InterestTaxonomyTerms, @InterestTaxonomyDesc,  1  ,  @Phase , getdate())

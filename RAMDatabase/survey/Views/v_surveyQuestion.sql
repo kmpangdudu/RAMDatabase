@@ -1,3 +1,4 @@
+﻿
  --
 --
 -- This is for the 4th Dimerence Co and SpeakFeel , a Agency , when he is developing onlive chat servey 
@@ -6,6 +7,8 @@
 --
 CREATE view [survey].[v_surveyQuestion]
 as
-SELECT        surveyQuestion_ID, surveyTypeID, surveyQuestion, surveyQuestion_fr, surveyQuestion_Desc, surveyQuestion_Desc_fr, surveyQuestion_active, surveyQuestion_starton, surveyQuestion_endon, 
-                         surveyQuestion_changedDate, surveyQuestion_CreatedDate
+SELECT        surveyQuestion_ID, surveyTypeID, surveyQuestion
+, surveyQuestion_fr, surveyQuestion_Desc, surveyQuestion_Desc_fr
+, surveyQuestion_active, surveyQuestion_starton, surveyQuestion_endon, 
+                          surveyQuestion_CreatedDate
 FROM            survey.surveyQuestion

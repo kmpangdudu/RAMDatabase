@@ -26,7 +26,7 @@ if (@num =0)
 					SELECT  top 10
 						m.[ETLLoadID],[PublicName],[AgencyDescription]
 
-					FROM [RAM].[dbo].[PhoneWeb] as m left join [RAM].[dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
+					FROM [dbo].[PhoneWeb] as m left join [dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
 						left join  [dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
 						left join  [dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
 						left join [dbo].[KHPCategory] kc on k.KHPCategoryID = kc.KHPCategoryID
@@ -38,7 +38,7 @@ if (@num =0)
 					SELECT  top 10
 						m.[ETLLoadID],k.KHPCategoryID,[PublicName],[AgencyDescription]
 
-					FROM [RAM].[dbo].[PhoneWeb] as m left join [RAM].[dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
+					FROM [dbo].[PhoneWeb] as m left join [dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
 						left join  [dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
 						left join  [dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
 						left join [dbo].[KHPCategory] kc on k.KHPCategoryID = kc.KHPCategoryID
@@ -53,7 +53,7 @@ if (@num =0)
 					SELECT   
 						m.[ETLLoadID],[PublicName],[AgencyDescription]
 
-					FROM [RAM].[dbo].[PhoneWeb] as m left join [RAM].[dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
+					FROM [dbo].[PhoneWeb] as m left join [dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
 						left join  [dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
 						left join  [dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
 						left join [dbo].[KHPCategory] kc on k.KHPCategoryID = kc.KHPCategoryID
@@ -65,7 +65,7 @@ if (@num =0)
 					SELECT   
 						m.[ETLLoadID],[PublicName],[AgencyDescription]
 
-					FROM [RAM].[dbo].[PhoneWeb] as m left join [RAM].[dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
+					FROM [dbo].[PhoneWeb] as m left join [dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
 						left join  [dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
 						left join  [dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
 						left join [dbo].[KHPCategory] kc on k.KHPCategoryID = kc.KHPCategoryID

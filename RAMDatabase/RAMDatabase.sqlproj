@@ -469,18 +469,6 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
-    <Build Include="survey\Views\V_PreSurvey.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="survey\Views\V_PostSurvey.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
-    <Build Include="survey\Views\V_Survey_Answer_pivot.sql">
-      <AnsiNulls>On</AnsiNulls>
-      <QuotedIdentifier>On</QuotedIdentifier>
-    </Build>
     <Build Include="crd\Views\V_DIMRecordClassification.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
@@ -890,6 +878,7 @@
     </Build>
     <Build Include="dbo\Stored Procedures\TempGetAppID.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="survey\Stored Procedures\Proc_Insert_Answer.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -897,18 +886,23 @@
     </Build>
     <Build Include="dbo\Stored Procedures\TempGetStateItem.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\TempGetStateItem2.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\TempGetStateItem3.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\TempGetStateItemExclusive.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\TempGetStateItemExclusive2.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\Proc_Cluster_Search.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -916,6 +910,7 @@
     </Build>
     <Build Include="dbo\Stored Procedures\TempGetStateItemExclusive3.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\Proc_Get_TopCategory.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -923,9 +918,11 @@
     </Build>
     <Build Include="dbo\Stored Procedures\TempReleaseStateItemExclusive.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\TempInsertUninitializedItem.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\Proc_Get_SubCategory.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -933,6 +930,7 @@
     </Build>
     <Build Include="dbo\Stored Procedures\TempInsertStateItemShort.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\Proc_Get_Location.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -940,9 +938,11 @@
     </Build>
     <Build Include="dbo\Stored Procedures\TempInsertStateItemLong.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\TempUpdateStateItemShort.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\InterestTaxonomyCode_Splite.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -950,9 +950,11 @@
     </Build>
     <Build Include="dbo\Stored Procedures\TempUpdateStateItemShortNullLong.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\TempUpdateStateItemLong.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\Proc_Get_SubCategory_byTopCategory.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -960,9 +962,11 @@
     </Build>
     <Build Include="dbo\Stored Procedures\TempUpdateStateItemLongNullShort.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\TempRemoveStateItem.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\Proc_TopCategory_Subcategory_Location_Search.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -974,6 +978,7 @@
     </Build>
     <Build Include="dbo\Stored Procedures\TempResetTimeout.sql">
       <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\DeleteExpiredSessions.sql">
       <AnsiNulls>On</AnsiNulls>
@@ -1319,8 +1324,6 @@
     <Build Include="adjustment\Mountain view%28SEO) Toronto.sql" />
     <Build Include="adjustment\Mountain view%28SEO) Winnipeg.sql" />
     <Build Include="adjustment\Tester_2__Small.sql" />
-    <Build Include="survey\Views\v_Chat_SurveyAnswer.sql" />
-    <Build Include="survey\Views\v_ChatApp_surveyAnswer.sql" />
     <Build Include="survey\Views\v_SurveyLog.sql" />
     <Build Include="survey\Views\v_surveyQuestion.sql" />
     <Build Include="iceCTI\Stored Procedures\iceCTI.Proc_GetQueue.sql" />
@@ -1366,6 +1369,66 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="iceCTI\Stored Procedures\Proc_LastHourGrade.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="iceCTI\Tables\AgentStatus.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="iceCTI\Tables\Agent.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="survey\Views\V2_Survey_Answer_pivot.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="survey\Views\V2_PreSurvey.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="survey\Views\V2_PostSurvey.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="survey\Views\v2_ChatApp_surveyAnswer.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="survey\Views\v2_Chat_SurveyAnswer.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="survey\Views\V_surveyType.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="survey\Views\V_surveyQuestionOpt.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="survey\Views\V_surveyAnswer.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="survey\Stored Procedures\Proc_Survey_Answer_pivot_V3.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="survey\Stored Procedures\Proc_Survey_Answer_pivot_V2.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="iceCTI\Stored Procedures\Proc_GetAgentStatus.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="iceCTI\Stored Procedures\Proc_GetAgent.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\ACLID_usage_by_month.sql">
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>

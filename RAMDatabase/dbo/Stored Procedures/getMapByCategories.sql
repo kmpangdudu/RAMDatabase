@@ -1,9 +1,4 @@
-﻿-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
--- =============================================
-CREATE PROCEDURE [dbo].[getMapByCategories] 
+﻿CREATE PROCEDURE [dbo].[getMapByCategories] 
 	-- Add the parameters for the stored procedure here
 @c1 varchar(5) = '0',
 @c2 varchar(5) = '0',
@@ -47,9 +42,9 @@ BEGIN
       ,[WorkHours]
       ,[CustomEligibilitybyAge]
  
-  FROM [RAM].[dbo].[Map] as m left join [RAM].[dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
-  left join [RAM].[dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
-  left join [RAM].[dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
+  FROM [dbo].[Map] as m left join [dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
+  left join [dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
+  left join [dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
   where  ( k.KHPCategoryID = convert(int,@c1) or
   k.KHPCategoryID = convert(int,@c2) or
   k.KHPCategoryID = convert(int,@c3) or

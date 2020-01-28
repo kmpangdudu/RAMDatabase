@@ -1,7 +1,6 @@
-﻿
-        CREATE PROCEDURE dbo.CreateTempTables
+﻿        CREATE PROCEDURE [dbo].[CreateTempTables]
         AS
-            CREATE TABLE [RAM].dbo.ASPStateTempSessions (
+            CREATE TABLE dbo.ASPStateTempSessions (
                 SessionId           nvarchar(88)    NOT NULL PRIMARY KEY,
                 Created             datetime        NOT NULL DEFAULT GETUTCDATE(),
                 Expires             datetime        NOT NULL,
@@ -15,13 +14,13 @@
                 Flags               int             NOT NULL DEFAULT 0,
             ) 
 
-            CREATE NONCLUSTERED INDEX Index_Expires ON [RAM].dbo.ASPStateTempSessions(Expires)
+            CREATE NONCLUSTERED INDEX Index_Expires ON dbo.ASPStateTempSessions(Expires)
 
-            CREATE TABLE [RAM].dbo.ASPStateTempApplications (
+            CREATE TABLE dbo.ASPStateTempApplications (
                 AppId               int             NOT NULL PRIMARY KEY,
                 AppName             char(280)       NOT NULL,
             ) 
 
-            CREATE NONCLUSTERED INDEX Index_AppName ON [RAM].dbo.ASPStateTempApplications(AppName)
+            CREATE NONCLUSTERED INDEX Index_AppName ON  dbo.ASPStateTempApplications(AppName)
 
             RETURN 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 

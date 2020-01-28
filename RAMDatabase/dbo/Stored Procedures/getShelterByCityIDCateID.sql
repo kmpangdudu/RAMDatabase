@@ -29,7 +29,7 @@ if (@num =0)
 						,m.[Latitude],m.[Longitude],[HoursOfOperation],[Phone],[WebsiteAddress],[Eligibility],[DisabilitiesAccess],[FeeStructureSource],[ApplicationProcess]
 						,[DocumentsRequired],[LanguagesOfferedList],[LanguageOfRecord],[WorkHours],[CustomEligibilitybyAge],m.[createdDate],kc.KHPCategory
 
-					FROM [RAM].[dbo].[Shelter] as m left join [RAM].[dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
+					FROM [dbo].[Shelter] as m left join [dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
 						left join  [dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
 						left join  [dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
 						left join [dbo].[KHPCategory] kc on k.KHPCategoryID = kc.KHPCategoryID
@@ -44,7 +44,7 @@ if (@num =0)
 						,m.[Latitude],m.[Longitude],[HoursOfOperation],[Phone],[WebsiteAddress],[Eligibility],[DisabilitiesAccess],[FeeStructureSource],[ApplicationProcess]
 						,[DocumentsRequired],[LanguagesOfferedList],[LanguageOfRecord],[WorkHours],[CustomEligibilitybyAge],m.[createdDate],kc.KHPCategory
 
-					FROM [RAM].[dbo].[Shelter] as m left join [RAM].[dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
+					FROM [dbo].[Shelter] as m left join [dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
 						left join  [dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
 						left join  [dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
 						left join [dbo].[KHPCategory] kc on k.KHPCategoryID = kc.KHPCategoryID
@@ -62,7 +62,7 @@ if (@num =0)
 						,m.[Latitude],m.[Longitude],[HoursOfOperation],[Phone],[WebsiteAddress],[Eligibility],[DisabilitiesAccess],[FeeStructureSource],[ApplicationProcess]
 						,[DocumentsRequired],[LanguagesOfferedList],[LanguageOfRecord],[WorkHours],[CustomEligibilitybyAge],m.[createdDate],kc.KHPCategory
 
-					FROM [RAM].[dbo].[Shelter] as m left join [RAM].[dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
+					FROM [dbo].[Shelter] as m left join [dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
 						left join  [dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
 						left join  [dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
 						left join [dbo].[KHPCategory] kc on k.KHPCategoryID = kc.KHPCategoryID
@@ -77,7 +77,7 @@ if (@num =0)
 						,m.[Latitude],m.[Longitude],[HoursOfOperation],[Phone],[WebsiteAddress],[Eligibility],[DisabilitiesAccess],[FeeStructureSource],[ApplicationProcess]
 						,[DocumentsRequired],[LanguagesOfferedList],[LanguageOfRecord],[WorkHours],[CustomEligibilitybyAge],m.[createdDate],kc.KHPCategory
 
-					FROM [RAM].[dbo].[Shelter] as m left join [RAM].[dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
+					FROM [dbo].[Shelter] as m left join [dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
 						left join  [dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
 						left join  [dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
 						left join [dbo].[KHPCategory] kc on k.KHPCategoryID = kc.KHPCategoryID

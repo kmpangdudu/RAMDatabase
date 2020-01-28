@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE Proc_Insert_Update_Table_Subcategory
+CREATE PROCEDURE [dbo].[Proc_Insert_Update_Table_Subcategory]
 	-- Add the parameters for the stored procedure here
 @SubCategory NVARCHAR(255),
 @SubCategoryDesc NVARCHAR (500) = '',
@@ -17,16 +17,16 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-  IF EXISTS (SELECT SubCategoryid FROM [RAM].[dbo].[SubCategory] WHERE SubCategory = @SubCategory )
+  IF EXISTS (SELECT SubCategoryid FROM [dbo].[SubCategory] WHERE SubCategory = @SubCategory )
 	  BEGIN
-		  UPDATE [RAM].[dbo].[SubCategory] SET
+		  UPDATE [dbo].[SubCategory] SET
 		  Active = @Active,
 		  ChangedDate = GETDATE()
 		  WHERE SubCategory = @SubCategory
 	  END
 	ELSE
 		BEGIN
-			INSERT INTO [RAM].[dbo].[SubCategory] 
+			INSERT INTO [dbo].[SubCategory] 
 				([SubCategory],[SubCategoryDesc],[SubCategory_fr],[SubCategoryDesc_fr],[Active],[ChangedDate])
 			VALUES
 				(@SubCategory,@SubCategoryDesc,@SubCategory_fr,@SubCategoryDesc_fr,  @Active  ,  getdate())

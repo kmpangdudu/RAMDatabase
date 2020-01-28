@@ -1,5 +1,4 @@
-﻿
--- =============================================
+﻿-- =============================================
 -- Author:		William Chen
 -- Create date: Oct. 20 2015
 -- Description:	Distinct all can be pinned resources 
@@ -48,7 +47,7 @@ SELECT [ETLLoadID]
       ,[WorkHours]
       ,[CustomEligibilitybyAge]
       ,m.[createdDate]
-  FROM [RAM].[dbo].[Map] as m JOIN  [dbo].[SubCategory] as s on m.SubCategoryID = s.SubCategoryID 
+  FROM [dbo].[Map] as m JOIN  [dbo].[SubCategory] as s on m.SubCategoryID = s.SubCategoryID 
   JOIN [dbo].[TopCategory] as t on t.TopCategoryID = m.TopCategoryID
 WHERE LanguageOfRecord = @lang and s.Active = 1 and t.Active = 1
 ORDER BY [ETLLoadID]

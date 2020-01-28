@@ -39,8 +39,8 @@ SELECT m.[ETLLoadID]
       ,[WorkHours]
       ,[CustomEligibilitybyAge]
  
-  FROM [RAM].[dbo].[Map] as m left join [RAM].[dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
-  left join [RAM].[dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
-  left join [RAM].[dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
+  FROM [dbo].[Map] as m left join [dbo].[CityLocation] as c on m.PhysicalCityID = c.CityId
+  left join [dbo].[Province] as p on m.PhysicalProvinceID = p.ProvinceID
+  left join [dbo].[ETLLoadIDAndKHPCategoryID] k on m.ETLLoadID = k.etlloadid  
   order by m.[ETLLoadID]
 END

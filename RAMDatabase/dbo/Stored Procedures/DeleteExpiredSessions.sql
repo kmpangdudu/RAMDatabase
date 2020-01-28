@@ -1,5 +1,4 @@
-﻿
-        CREATE PROCEDURE dbo.DeleteExpiredSessions
+﻿       CREATE PROCEDURE [dbo].[DeleteExpiredSessions]
         AS
             SET NOCOUNT ON
             SET DEADLOCK_PRIORITY LOW 
@@ -14,7 +13,7 @@
 
             INSERT #tblExpiredSessions (SessionId)
                 SELECT SessionId
-                FROM [RAM].dbo.ASPStateTempSessions WITH (READUNCOMMITTED)
+                FROM dbo.ASPStateTempSessions WITH (READUNCOMMITTED)
                 WHERE Expires < @now
 
             IF @@ROWCOUNT <> 0 
@@ -30,7 +29,7 @@
 
                 WHILE @@FETCH_STATUS = 0 
                     BEGIN
-                        DELETE FROM [RAM].dbo.ASPStateTempSessions WHERE SessionId = @SessionId AND Expires < @now
+                        DELETE FROM dbo.ASPStateTempSessions WHERE SessionId = @SessionId AND Expires < @now
                         FETCH NEXT FROM ExpiredSessionCursor INTO @SessionId
                     END
 

@@ -1,5 +1,5 @@
 ﻿
-        CREATE PROCEDURE dbo.TempInsertStateItemLong
+        CREATE PROCEDURE [dbo].[TempInsertStateItemLong]
             @id         tSessionId,
             @itemLong   tSessionItemLong,
             @timeout    int
@@ -10,7 +10,7 @@
             SET @now = GETUTCDATE()
             SET @nowLocal = GETDATE()
 
-            INSERT [RAM].dbo.ASPStateTempSessions 
+            INSERT  dbo.ASPStateTempSessions 
                 (SessionId, 
                  SessionItemLong, 
                  Timeout, 

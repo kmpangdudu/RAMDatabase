@@ -29,16 +29,16 @@ SELECT  'Table InterestTaxonomy',    InterestTaxonomyID,   Active,  changedDate,
 
 -- check; if SubcategoryID_InterestTaxonomyID pair exists then update or insert
 IF NOT EXISTS	(
-				SELECT SubcategoryID_InterestTaxonomyID  FROM [RAM].[dbo].[SubcategoryID_InterestTaxonomyID] 
+				SELECT SubcategoryID_InterestTaxonomyID  FROM [dbo].[SubcategoryID_InterestTaxonomyID] 
 					WHERE  InterestTaxonomyID = @InterestTaxonomyID   AND  SubCategoryID = @subcategoryid 
 				)
 	BEGIN   ---   New Taxonomy Code
-		INSERT INTO [RAM].[dbo].[SubcategoryID_InterestTaxonomyID]  (SubCategoryID , InterestTaxonomyID ,  Active  , ChangedDate )  VALUES
+		INSERT INTO [dbo].[SubcategoryID_InterestTaxonomyID]  (SubCategoryID , InterestTaxonomyID ,  Active  , ChangedDate )  VALUES
 		(@subcategoryid ,  @InterestTaxonomyID ,  1  ,  GETDATE())
 	END
 ELSE  -- OLD Taxonomy Code
 	BEGIN
-		update [RAM].[dbo].[SubcategoryID_InterestTaxonomyID] set　Active = 1,　ChangedDate = GETDATE()
+		update [dbo].[SubcategoryID_InterestTaxonomyID] set　Active = 1,　ChangedDate = GETDATE()
 		WHERE InterestTaxonomyID = @InterestTaxonomyID   AND  SubCategoryID = @subcategoryid  AND Active = 0
 	END  ;
 

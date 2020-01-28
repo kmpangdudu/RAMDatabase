@@ -16,7 +16,7 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 DECLARE @ACLID INT = 0;
-SELECT @ACLID = [ACLID] FROM [RAM].[dbo].[AccessControlList] WHERE @token = [ACLToken];
+SELECT @ACLID = [ACLID] FROM [dbo].[AccessControlList] WHERE @token = [ACLToken];
 
 IF @ACLID > 0
 	BEGIN

@@ -1,5 +1,5 @@
 ﻿
-    CREATE PROCEDURE dbo.TempGetAppID
+    CREATE PROCEDURE [dbo].[TempGetAppID]
     @appName    tAppName,
     @appId      int OUTPUT
     AS
@@ -7,21 +7,21 @@
     SET @appId = NULL
 
     SELECT @appId = AppId
-    FROM [RAM].dbo.ASPStateTempApplications
+    FROM dbo.ASPStateTempApplications
     WHERE AppName = @appName
 
     IF @appId IS NULL BEGIN
         BEGIN TRAN        
 
         SELECT @appId = AppId
-        FROM [RAM].dbo.ASPStateTempApplications WITH (TABLOCKX)
+        FROM dbo.ASPStateTempApplications WITH (TABLOCKX)
         WHERE AppName = @appName
         
         IF @appId IS NULL
         BEGIN
             EXEC GetHashCode @appName, @appId OUTPUT
             
-            INSERT [RAM].dbo.ASPStateTempApplications
+            INSERT dbo.ASPStateTempApplications
             VALUES
             (@appId, @appName)
             
@@ -30,7 +30,7 @@
                 DECLARE @dupApp tAppName
             
                 SELECT @dupApp = RTRIM(AppName)
-                FROM [RAM].dbo.ASPStateTempApplications 
+                FROM dbo.ASPStateTempApplications 
                 WHERE AppId = @appId
                 
                 RAISERROR('SQL session state fatal error: hash-code collision between applications ''%s'' and ''%s''. Please rename the 1st application to resolve the problem.', 

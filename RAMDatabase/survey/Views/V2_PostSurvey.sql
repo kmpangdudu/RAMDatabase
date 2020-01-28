@@ -1,5 +1,5 @@
 ﻿
-CREATE VIEW [survey].[V_PostSurvey]
+CREATE VIEW [survey].[V2_PostSurvey]
 as
 select chatID  ,
 max(case when surveyquestion_id = 10 then surveyanswer end)   as [Did you just chat with a counsellor?] ,

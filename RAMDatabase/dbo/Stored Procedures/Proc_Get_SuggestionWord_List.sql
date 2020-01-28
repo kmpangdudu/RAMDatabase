@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE Proc_Get_SuggestionWord_List 
+CREATE PROCEDURE [dbo].[Proc_Get_SuggestionWord_List] 
 
 AS
 BEGIN
@@ -15,5 +15,5 @@ BEGIN
 SELECT [SuggestionWordID]
       ,[SuggestionWord]
 
-  FROM [RAM].[dbo].[SuggestionWord]
+  FROM [dbo].[SuggestionWord]
 END

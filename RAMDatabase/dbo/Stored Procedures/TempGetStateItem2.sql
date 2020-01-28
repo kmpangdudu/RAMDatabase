@@ -1,5 +1,5 @@
 ﻿
-        CREATE PROCEDURE dbo.TempGetStateItem2
+        CREATE PROCEDURE [dbo].[TempGetStateItem2]
             @id         tSessionId,
             @itemShort  tSessionItemShort OUTPUT,
             @locked     bit OUTPUT,
@@ -11,7 +11,7 @@
             DECLARE @now AS datetime
             SET @now = GETUTCDATE()
 
-            UPDATE [RAM].dbo.ASPStateTempSessions
+            UPDATE dbo.ASPStateTempSessions
             SET Expires = DATEADD(n, Timeout, @now), 
                 @locked = Locked,
                 @lockAge = DATEDIFF(second, LockDate, @now),
@@ -30,7 +30,7 @@
                     END
             WHERE SessionId = @id
             IF @length IS NOT NULL BEGIN
-                READTEXT [RAM].dbo.ASPStateTempSessions.SessionItemLong @textptr 0 @length
+                READTEXT dbo.ASPStateTempSessions.SessionItemLong @textptr 0 @length
             END
 
             RETURN 0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               

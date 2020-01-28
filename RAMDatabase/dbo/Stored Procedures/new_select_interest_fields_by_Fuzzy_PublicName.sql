@@ -3,7 +3,7 @@
 -- Create date: Sept.15, 2015
 -- Description:	Select the most interesting fields from ETLLOAD TABLE
 -- =============================================
-CREATE PROCEDURE  new_select_interest_fields_by_Fuzzy_PublicName
+CREATE PROCEDURE  [dbo].[new_select_interest_fields_by_Fuzzy_PublicName]
 @publicname nvarchar(255) = N''
 AS
 BEGIN
@@ -120,6 +120,6 @@ SELECT [ETLLoadID]
       ,[CustomSuggestKeyword]
       ,[CustomRecordType]
       ,[createdDate]
-  FROM [RAM].[dbo].[ETLLoad] 
+  FROM [dbo].[ETLLoad] 
   WHERE PublicName like ''+'%'+ @publicname + '%' + ''
 END

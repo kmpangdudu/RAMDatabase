@@ -1,11 +1,11 @@
 ﻿
-        CREATE PROCEDURE dbo.TempUpdateStateItemLong
+        CREATE PROCEDURE [dbo].[TempUpdateStateItemLong]
             @id         tSessionId,
             @itemLong   tSessionItemLong,
             @timeout    int,
             @lockCookie int
         AS    
-            UPDATE [RAM].dbo.ASPStateTempSessions
+            UPDATE  dbo.ASPStateTempSessions
             SET Expires = DATEADD(n, @timeout, GETUTCDATE()), 
                 SessionItemLong = @itemLong,
                 Timeout = @timeout,

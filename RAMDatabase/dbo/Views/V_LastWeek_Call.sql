@@ -3,6 +3,7 @@
 
 
 
+
 /* last week*/
 CREATE VIEW [dbo].[V_LastWeek_Call]
 AS
@@ -11,6 +12,7 @@ SELECT    dbo.fn_lastweek_startday() as [From], dateadd(dd,-1,dbo.fn_lastweek_en
 	k.KHP_Lastweek,kl.KHP_Lastweek_LastYear, 
 	CAMH_LastWeek, CAMH_LastWeek_LastYear, 
 	Foundry_LastWeek, Foundry_LastWeek_LastYear, 
+	MYSMB_LastWeek, MYSMB_LastWeek_LastYear, 
 	[Other_LastWeek],[Other_LastWeek_LastYear]
 FROM            (SELECT        'a' AS l, COUNT(*) AS All_lastweek
                           FROM            dbo.apilog
@@ -55,6 +57,17 @@ FROM            (SELECT        'a' AS l, COUNT(*) AS All_lastweek
 							   select 'a' as l, count(*) as [Foundry_LastWeek_LastYear] from apilog where (logdate >= DATEADD(year,-1,[dbo].[fn_lastweek_startday]()) AND logdate <DATEADD(year,-1,[dbo].[fn_lastweek_endday]())) AND (aclname = 'Foundry'  )
 							   ) as Foundry_l on a.l = Foundry_l.l	INNER JOIN		 				   
 							   
+
+			-- MYSMB				    
+							   (
+							   select 'a' as l, count(*) as [MYSMB_LastWeek] from apilog where (logdate >= [dbo].[fn_lastweek_startday]() AND logdate <[dbo].[fn_lastweek_endday]()) AND (aclname = 'MYSMB'  )
+							   ) as MYSMB on a.l = MYSMB.l  INNER JOIN
+							   (
+							   select 'a' as l, count(*) as [MYSMB_LastWeek_LastYear] from apilog where (logdate >= DATEADD(year,-1,[dbo].[fn_lastweek_startday]()) AND logdate <DATEADD(year,-1,[dbo].[fn_lastweek_endday]())) AND (aclname = 'MYSMB'  )
+							   ) as MYSMB_l on a.l = MYSMB_l.l   	INNER JOIN	
+
+
+
 			-- Other				    
 							   (
 							   select 'a' as l, count(*) as [Other_LastWeek] from apilog where (logdate >= [dbo].[fn_lastweek_startday]() AND logdate <[dbo].[fn_lastweek_endday]()) AND (aclname = 'Unknown' or aclname is null )

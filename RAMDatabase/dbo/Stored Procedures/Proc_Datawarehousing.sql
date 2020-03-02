@@ -2,7 +2,9 @@
 -- Author:		William Chen
 -- Create date: 2017-10-23
 -- Description:	log data ware housing log
--- updating: 2020-01-27 commented some "AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;"
+-- updating: 
+-- 2020-02-19 appling [agencystatus] = N'active' to query on table [ETLLOAD]
+-- 2020-01-27 commented some "AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;"
 -- at select @RAMResource_fr = count(etlloadid)   from [dbo].[RAMResource] where LanguageOfRecord = 'fr' --  AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
 -- select @RamResource=COUNT(etlloadid) from  [dbo].[RamResource] -- WHERE (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
 -- select @mapped=COUNT(etlloadid) from  [dbo].[RamResource] where Map ='mapped' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
@@ -50,13 +52,14 @@ DECLARE @Agency                      INT = 0;
 DECLARE @Site                        INT = 0;
 DECLARE @Program                     INT = 0;
 DECLARE @ProgramAtSite               INT = 0;
-select @ETLLoad=COUNT(etlloadid) from  [dbo].[ETLLoad];
-Select @English =  COUNT(etlloadid) from  [dbo].[ETLLoad] WHERE LanguageOfRecord = 'en';
+select @ETLLoad=COUNT(etlloadid) from  [dbo].[ETLLoad] where [AgencyStatus] = N'Active';
+Select @English =  COUNT(etlloadid) from  [dbo].[ETLLoad] WHERE [AgencyStatus] = N'Active' AND LanguageOfRecord = 'en';
 Select @French = @ETLLoad - @English ;
-SELECT @Agency         = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE TaxonomyLevelName = 'Agency'
-SELECT @Site           = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE TaxonomyLevelName = 'Site'
-SELECT @Program        = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE TaxonomyLevelName = 'Program'
-SELECT @ProgramAtSite  = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE TaxonomyLevelName = 'ProgramAtSite'
+SELECT @Agency         = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE [AgencyStatus] = N'Active' AND  TaxonomyLevelName = 'Agency'
+SELECT @Site           = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE [AgencyStatus] = N'Active' AND  TaxonomyLevelName = 'Site'
+SELECT @Program        = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE [AgencyStatus] = N'Active' AND  TaxonomyLevelName = 'Program'
+SELECT @ProgramAtSite  = COUNT(etlloadid)   from  [dbo].[ETLLoad] WHERE [AgencyStatus] = N'Active' AND  TaxonomyLevelName = 'ProgramAtSite'
+
 select @RAMResource_fr = count(etlloadid)   from [dbo].[RAMResource] where LanguageOfRecord = 'fr' -- AND  (RamResource.PhysicalCityID <> 0) AND (RamResource.PhysicalProvinceID <> 99) ;
 select @Coverage=COUNT(etlloadid) from [dbo].[Coverage];
 select @CustomEligibilitybyAge=COUNT(etlloadid) from [dbo].[CustomEligibilitybyAge];

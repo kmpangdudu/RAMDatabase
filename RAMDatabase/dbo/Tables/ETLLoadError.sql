@@ -168,6 +168,7 @@
     [TaxonomyCodes]                      NVARCHAR (2000) NULL,
     [Coverage]                           NVARCHAR (MAX)  NULL,
     [WorkHours]                          NVARCHAR (2000) NULL,
+    [CustomIndigenousEmergencyServices]  NVARCHAR (2000) NULL,
     [CustomServicesToLGBTQ]              NVARCHAR (2000) NULL,
     [CustomAutomatedStatus]              NVARCHAR (2000) NULL,
     [CustomBatchID]                      NVARCHAR (2000) NULL,
@@ -187,4 +188,6 @@
     [ErrorCode]                          NVARCHAR (2000) NULL,
     [ErrorColumn]                        NVARCHAR (2000) NULL
 );
+
+
 

@@ -22,6 +22,7 @@
 -- 这样就解决了同一个记录出现在 map = BOTH ; 又再次出现再 Map= Mapped 或 Map = List 的情况
 
 -- 以上修改的存储过程，要替换掉 SSIS 中的Execute SQL Task （ Exe_SQL_Build_SP_Construct_RAMResource ）
+-- 2020-07-13 为了回答 Anyesha Sanghani的的问题， 临时comment 掉HoursOfOperation从Site和Agent处取数值
 -- ===================================================================================================================================
 CREATE PROCEDURE [dbo].[Proc_Construct_RAMResource]
 AS
@@ -239,16 +240,16 @@ SELECT
 			CASE
 					WHEN  LEN ([P_HoursOfOperation]) > 0  THEN  [P_HoursOfOperation]  
 					WHEN  LEN ([ps_HoursOfOperation])   > 0  THEN  [ps_HoursOfOperation]         
-					WHEN  LEN ([s_HoursOfOperation])    > 0  THEN  [s_HoursOfOperation]  
-					WHEN  LEN ([a_HoursOfOperation]) > 0  THEN  [a_HoursOfOperation]
+					WHEN  LEN ([s_HoursOfOperation])    > 0  THEN  [s_HoursOfOperation]    -- 2020-07-13 为了回答 Anyesha Sanghani的的问题， 临时comment 掉
+					WHEN  LEN ([a_HoursOfOperation]) > 0  THEN  [a_HoursOfOperation]      -- 2020-07-13 为了回答 Anyesha Sanghani的的问题， 临时comment 掉
 					ELSE  ''
 			END
 		when [TaxonomyLevelNameID] = 4 then 
 			CASE
 					WHEN  LEN ([ps_HoursOfOperation])   > 0  THEN  [ps_HoursOfOperation]         
 					WHEN  LEN ([P_HoursOfOperation]) > 0  THEN  [P_HoursOfOperation]  
-					WHEN  LEN ([s_HoursOfOperation])    > 0  THEN  [s_HoursOfOperation]  
-					WHEN  LEN ([a_HoursOfOperation]) > 0  THEN  [a_HoursOfOperation]
+				 	WHEN  LEN ([s_HoursOfOperation])    > 0  THEN  [s_HoursOfOperation]    -- 2020-07-13 为了回答 Anyesha Sanghani的的问题， 临时comment 掉
+				 	WHEN  LEN ([a_HoursOfOperation]) > 0  THEN  [a_HoursOfOperation]       -- 2020-07-13 为了回答 Anyesha Sanghani的的问题， 临时comment 掉
 					ELSE  ''
 			END
 	end

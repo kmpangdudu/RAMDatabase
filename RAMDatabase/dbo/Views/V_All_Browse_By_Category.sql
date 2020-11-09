@@ -1,9 +1,10 @@
-﻿CREATE VIEW [dbo].[V_All_Browse_By_Category]
+﻿
+CREATE VIEW [dbo].[V_All_Browse_By_Category]
 AS
 SELECT        num, tid, t .TopCategory, 
                          CASE t .TopCategory WHEN 'Health' THEN 'Health' WHEN 'Indigenous Support Services' THEN 'Indigenous' WHEN 'Drugs, Alcohol and Gambling Support' THEN 'Drugs' WHEN 'Counselling and Mental Health Support'
-                          THEN 'Counselling' WHEN 'Legal and Advocacy Support' THEN 'Legal' WHEN 'Housing and Homelessness Support' THEN 'Housing' WHEN 'Jobs Support' THEN 'Job' WHEN 'Violence and Abuse Support' THEN 'Violence'
-                          WHEN 'LGBTQ Support Services' THEN 'LGBTQ' END AS category
+                          THEN 'Counselling' WHEN 'Legal and Advocacy Support' THEN 'Legal' WHEN 'Housing and Homelessness Support' THEN 'Housing' WHEN 'Jobs and Money' THEN 'Job' WHEN 'Violence and Abuse Support' THEN 'Violence'
+                          WHEN 'LGBTQ2S+ Support Services' THEN 'LGBTQ'   WHEN 'Newcomer Support Services' THEN 'Newcomer' END AS category
 FROM            Topcategory AS t JOIN
                              (SELECT        Count(api.apilogid) AS Num, kws.TID
                                FROM            apilog AS api CROSS apply

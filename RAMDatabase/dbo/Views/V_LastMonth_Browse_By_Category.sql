@@ -1,4 +1,5 @@
 ﻿
+
 CREATE VIEW [dbo].[V_LastMonth_Browse_By_Category] AS
 select a.num, a. tid, t.TopCategory, 
 case t.TopCategory
@@ -8,9 +9,10 @@ when 'Drugs, Alcohol and Gambling Support' then 'Drugs'
 when 'Counselling and Mental Health Support' then 'Counselling'
 when 'Legal and Advocacy Support' then 'Legal'
 when 'Housing and Homelessness Support' then 'Housing'
-when 'Jobs Support' then 'Job'
+when 'Jobs and Money' then 'Job'
 when 'Violence and Abuse Support' then 'Violence'
-when 'LGBTQ Support Services' then 'LGBTQ'
+when 'LGBTQ2S+ Support Services' then 'LGBTQ'
+when 'Newcomer Support Services' then 'NewComer'
 end as category
  from Topcategory as t
 join 

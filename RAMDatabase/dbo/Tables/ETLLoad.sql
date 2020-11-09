@@ -168,6 +168,7 @@
     [TaxonomyCodes]                      NVARCHAR (2000)  NULL,
     [Coverage]                           NVARCHAR (MAX)   NULL,
     [WorkHours]                          NVARCHAR (2000)  NULL,
+    [CustomIndigenousEmergencyServices]  NVARCHAR (2000)  NULL,
     [CustomServicesToLGBTQ]              NVARCHAR (2000)  NULL,
     [CustomAutomatedStatus]              NVARCHAR (2000)  NULL,
     [CustomBatchID]                      NVARCHAR (2000)  NULL,
@@ -186,4 +187,6 @@
     [createdDate]                        DATETIME         CONSTRAINT [DF_ETLLoad_createdDate] DEFAULT (getdate()) NULL,
     CONSTRAINT [PK_ETLLoad] PRIMARY KEY CLUSTERED ([ETLLoadID] ASC)
 );
+
+
 

@@ -12,6 +12,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 SELECT	DISTINCT
+						a.ETLLoadID,
 						a.ResourceAgencyNum,
 						a.Map, 
 						a.SubCategoryID, 

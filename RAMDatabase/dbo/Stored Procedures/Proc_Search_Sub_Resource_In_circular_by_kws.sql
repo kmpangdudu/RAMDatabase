@@ -246,27 +246,6 @@ ELSE  -- user input multiple keywords, will process those words into @k1--@k11
  END  -- END OF processing user inputed keywords into @k1--@k11
 
 
-
- 
- --SELECT @K1  = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID =  1 ;
- --SELECT @K2  = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID =  2 ;
- --SELECT @K3  = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID =  3 ;
- --SELECT @K4  = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID =  4 ;
- --SELECT @K5  = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID =  5 ;
- --SELECT @K6  = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID =  6 ;
- --SELECT @K7  = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID =  7 ;
- --SELECT @K8  = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID =  8 ;
- --SELECT @K9  = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID =  9 ;
- --SELECT @K10 = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID = 10 ;
- --SELECT @K11 = CONCAT('"' , KeyWord , '" OR "' , KeyWord , '*"')     FROM  @T_KEYWORD  WHERE ID = 11 ;
-
-
-
-
-
-
-
- 
  
  	------------------------------------------------------------
 	-- beginning fulltext CONTAIN search
@@ -480,8 +459,9 @@ END CATCH
 -- default langauge is English
 --------------------------------
 			SELECT DISTINCT    
-				  a.ResourceAgencyNum
-				, Map
+				  a.ETLLoadID
+				, a.ResourceAgencyNum
+				, a.Map
 				, A.[SubCategoryID]
 				, A.[TOPCategoryID]
 				, A. [Name]

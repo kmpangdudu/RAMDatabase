@@ -1,11 +1,10 @@
-﻿
--- =======================================================================================================================
+﻿-- ==========================================================================================
 -- Author:		William Chen
--- Create date: Nov.20, 2020
--- Description:	get subset of resource by using Top Category
--- =======================================================================================================================
-CREATE PROCEDURE [dbo].[Proc_Get_SubResource_by_TopCategory] 
-@TOPCategoryID int,
+-- Create date: Dec.1, 2020
+-- Description:	get subset of resource by using Top Province
+-- ==========================================================================================
+CREATE PROCEDURE [dbo].[Proc_Get_SubResource_by_Province] 
+@ProvinceID int,
 @lang nvarchar(50) = 'en',
 @token NVARCHAR(50)
 AS
@@ -15,7 +14,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 
-SELECT      DISTINCT 
+SELECT     DISTINCT   
 						a.ETLLoadID, 
 						a.ResourceAgencyNum,
 						a.Map, 
@@ -33,14 +32,15 @@ SELECT      DISTINCT
 						a.WebsiteAddress, 
 						a.Coverage
 FROM            RamResource AS a 
-					INNER JOIN      CityLocation AS c	ON a.PhysicalCityID = c.CityId  
-					INNER JOIN      Province AS p		ON a.PhysicalProvinceID = p.ProvinceID  
-					INNER JOIN      SubCategory AS SC	ON SC.SubCategoryID = a.SubCategoryID  
-					INNER JOIN      TopCategory AS TC	ON TC.TopCategoryID = a.TOPCategoryID
-				   	-- Return only those resources whose TopCategoryID is in the allowing TopCategory list
+                   INNER JOIN      CityLocation AS c	ON a.PhysicalCityID = c.CityId  
+                   INNER JOIN      Province AS p		ON a.PhysicalProvinceID = p.ProvinceID  
+                   INNER JOIN      ETLLoad AS ETL		ON a.ETLLoadID = ETL.ETLLoadID  
+                   INNER JOIN      SubCategory AS SC	ON SC.SubCategoryID = a.SubCategoryID  
+                   INNER JOIN      TopCategory AS TC	ON TC.TopCategoryID = a.TOPCategoryID
+				   -- Return only those resources whose TopCategoryID is in the allowing TopCategory list
 					INNER JOIN		F_Get_Allow_TopCategory (@token) AS ATC ON ATC.TopCategoryID = A.TOPCategoryID 
 					-- Return only those resources whose PhysicalCityID is in the allowing City list
 					INNER JOIN		F_Get_ALL_Allow_City  (@token)  AS ACID ON ACID.CityID = A.PhysicalCityID 
-WHERE a.TOPCategoryID = @TOPCategoryID  and a.LanguageOfRecord = @lang   AND SC.Active = 1 AND TC.Active = 1 
+WHERE [PhysicalProvinceID] = @ProvinceID  and a.LanguageOfRecord = @lang    AND SC.Active = 1 AND TC.Active = 1 
 ORDER BY        a.TOPCategoryID,  a.SubCategoryID, a.Map
 END

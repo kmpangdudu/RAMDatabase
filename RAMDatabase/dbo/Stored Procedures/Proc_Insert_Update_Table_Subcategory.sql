@@ -17,12 +17,16 @@ BEGIN
 	SET NOCOUNT ON;
 
     -- Insert statements for procedure here
-  IF EXISTS (SELECT SubCategoryid FROM [dbo].[SubCategory] WHERE SubCategory = @SubCategory )
+  IF EXISTS (SELECT SubCategoryid FROM [dbo].[SubCategory] WHERE SubCategory = @SubCategory and SubCategoryDesc=@SubCategoryDesc)
 	  BEGIN
 		  UPDATE [dbo].[SubCategory] SET
+		  SubCategory = @SubCategory,
+		  SubCategoryDesc = @SubCategoryDesc,
+		  SubCategory_fr = @SubCategory_fr,
+		  SubCategoryDesc_fr = @SubCategoryDesc_fr,
 		  Active = @Active,
 		  ChangedDate = GETDATE()
-		  WHERE SubCategory = @SubCategory
+		  WHERE SubCategory = @SubCategory and SubCategoryDesc=@SubCategoryDesc
 	  END
 	ELSE
 		BEGIN

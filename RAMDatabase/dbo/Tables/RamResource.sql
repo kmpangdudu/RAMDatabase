@@ -37,3 +37,17 @@
     CONSTRAINT [PK_RamResource_1] PRIMARY KEY CLUSTERED ([RAMID] ASC)
 );
 
+
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-Language ]
+    ON [dbo].[RamResource]([LanguageOfRecord] ASC)
+    INCLUDE([ETLLoadID], [SubCategoryID], [TOPCategoryID], [PhysicalCityID], [PhysicalProvinceID], [TaxonomyLevelNameID]);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-ELTID]
+    ON [dbo].[RamResource]([ETLLoadID] ASC)
+    INCLUDE([Map], [TaxonomyLevelNameID], [SubCategoryID], [TOPCategoryID], [PhysicalCityID], [PhysicalProvinceID], [LanguageOfRecord]);
+

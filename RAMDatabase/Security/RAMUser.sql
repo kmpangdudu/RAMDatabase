@@ -1,2 +1,4 @@
-﻿CREATE USER [RAMUser] FOR LOGIN [RAMUser];
+﻿CREATE USER [RAMUser];
+
+
 

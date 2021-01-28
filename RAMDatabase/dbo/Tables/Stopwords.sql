@@ -10,3 +10,9 @@
     CONSTRAINT [IX_Stopwords] UNIQUE NONCLUSTERED ([id] ASC)
 );
 
+
+GO
+ALTER TABLE [dbo].[Stopwords] NOCHECK CONSTRAINT [CHK_language_lcid];
+
+
+

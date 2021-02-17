@@ -255,7 +255,8 @@ END CATCH
 								a.Longitude, 
 								a.Phone, 
 								a.WebsiteAddress, 
-								a.Coverage
+								a.Coverage,
+								a.IsHelpline
  
 			FROM    
 			

@@ -454,7 +454,8 @@ END CATCH
 						a.Longitude, 
 						a.Phone, 
 						a.WebsiteAddress, 
-						a.Coverage
+						a.Coverage,
+						a.IsHelpline
  
 			FROM  RamResource   AS a
 			    INNER JOIN      CityLocation AS c		ON a.PhysicalCityID = c.CityId  

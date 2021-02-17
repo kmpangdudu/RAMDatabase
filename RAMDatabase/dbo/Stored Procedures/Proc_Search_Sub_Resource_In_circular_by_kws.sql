@@ -40,7 +40,8 @@ SELECT		DISTINCT
 						a.Phone, 
 						a.WebsiteAddress,  
 						a.LanguageOfRecord, 
-						a.Coverage
+						a.Coverage,
+						a.IsHelpline
 into #circular
 FROM            RamResource AS a 
                     INNER JOIN     CityLocation AS c ON a.PhysicalCityID = c.CityId  
@@ -475,6 +476,8 @@ END CATCH
 				, a.Phone
 				, a.WebsiteAddress
 				, a.Coverage
+				, a.IsHelpline
+				
 			FROM  #circular   AS a
 				JOIN @T_Result AS K ON K.ETLLoadiD = A.ETLLoadID
 				JOIN [dbo].[SubCategory] AS SC 		ON SC.[SubCategoryID] = A.SubCategoryID

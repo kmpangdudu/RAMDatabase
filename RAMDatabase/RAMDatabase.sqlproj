@@ -1480,6 +1480,10 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="Security\BIODS.sql" />
+    <Build Include="Security\BIDW.sql" />
+    <Build Include="Security\BIDM.sql" />
+    <Build Include="Security\administrator.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="adjustment\Small city.xlsx" />

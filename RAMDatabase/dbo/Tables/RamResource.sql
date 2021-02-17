@@ -32,10 +32,13 @@
     [CoverageArea]             NVARCHAR (2000)  NULL,
     [Coverage]                 NVARCHAR (MAX)   NULL,
     [NormalWaitTime]           NVARCHAR (2000)  NULL,
+    [IsHelpline]               BIT              CONSTRAINT [DF_RamResource_IsHelptline] DEFAULT ((0)) NULL,
     [changedDate]              NVARCHAR (2000)  NULL,
     [createdDate]              DATETIME         CONSTRAINT [DF_RamResource_createdDate] DEFAULT (getdate()) NOT NULL,
     CONSTRAINT [PK_RamResource_1] PRIMARY KEY CLUSTERED ([RAMID] ASC)
 );
+
+
 
 
 

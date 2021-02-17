@@ -23,6 +23,7 @@
 
 -- 以上修改的存储过程，要替换掉 SSIS 中的Execute SQL Task （ Exe_SQL_Build_SP_Construct_RAMResource ）
 -- 2020-07-13 为了回答 Anyesha Sanghani的的问题， 临时comment 掉HoursOfOperation从Site和Agent处取数值
+-- 2021-02-17 增加了 IsHelpline 列
 -- ===================================================================================================================================
 CREATE PROCEDURE [dbo].[Proc_Construct_RAMResource]
 AS
@@ -664,5 +665,9 @@ using (select  resourceagencynum  from RamResource where map= 'BOTH' ) as S
 on (T.resourceagencynum = S.resourceagencynum   and T.map <> 'BOTH')
 WHEN   MATCHED THEN 
 Delete;
+
+-- update IsHelpline column
+  update RamResource SET IsHelpline = 1
+  where SubCategoryID in ( select  SubCategoryID from SubCategory   where SubCategory like '%helpline%'  )
 
 END

@@ -34,7 +34,8 @@ if len(@PhoneChanged) >1
 								a.Longitude, 
 								a.Phone, 
 								a.WebsiteAddress, 
-								a.Coverage
+								a.Coverage,
+								a.IsHelpline
 		FROM            RamResource AS a 
 						   INNER JOIN      CityLocation AS c	ON a.PhysicalCityID = c.CityId  
 						   INNER JOIN      Province AS p		ON a.PhysicalProvinceID = p.ProvinceID  
@@ -66,7 +67,8 @@ if len(@PhoneChanged) >1
 								a.Longitude, 
 								a.Phone, 
 								a.WebsiteAddress, 
-								a.Coverage
+								a.Coverage,
+								a.IsHelpline
 			 FROM            RamResource AS a 
 						   INNER JOIN      CityLocation AS c	ON a.PhysicalCityID = c.CityId  
 						   INNER JOIN      Province AS p		ON a.PhysicalProvinceID = p.ProvinceID  

@@ -5,7 +5,7 @@
 -- Description:	get subset resource by using SubCategory
 -- Reversion: Nov.20, 2020, added Parameter @token to check access control list 
 -- =============================================
-Create PROCEDURE [dbo].[Proc_Get_SubResource_by_SubCategory] 
+CREATE PROCEDURE [dbo].[Proc_Get_SubResource_by_SubCategory] 
 @SubCategoryID int,
 @lang nvarchar(50) ='en',
 @token NVARCHAR(50)
@@ -32,7 +32,8 @@ SELECT     DISTINCT
 						a.Longitude, 
 						a.Phone, 
 						a.WebsiteAddress, 
-						a.Coverage
+						a.Coverage,
+						a.IsHelpline
 	
 FROM            RamResource AS a 
                   INNER JOIN      CityLocation AS c		ON a.PhysicalCityID = c.CityId  

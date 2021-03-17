@@ -1484,6 +1484,10 @@
     <Build Include="Security\BIDW.sql" />
     <Build Include="Security\BIDM.sql" />
     <Build Include="Security\administrator.sql" />
+    <Build Include="dbo\Stored Procedures\Proc_Get_SubResource_by_ID.sql">
+      <AnsiNulls>On</AnsiNulls>
+      <QuotedIdentifier>On</QuotedIdentifier>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <None Include="adjustment\Small city.xlsx" />

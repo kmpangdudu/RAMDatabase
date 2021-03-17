@@ -32,7 +32,11 @@ BEGIN
 -- becausr old stored procedure is @s
 ------------------------------------------------------------
 declare @SearchWordS NVARCHAR(255)  
+set @s = LTRIM(RTRIM(@s))
 select @SearchWordS = @s;
+
+set @lang = LTRIM(RTRIM(@lang))
+set @token = LTRIM(RTRIM(@token))
 
 
 

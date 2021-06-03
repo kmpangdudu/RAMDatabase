@@ -168,6 +168,7 @@
     [TaxonomyCodes]                      NVARCHAR (2000) NULL,
     [Coverage]                           NVARCHAR (MAX)  NULL,
     [WorkHours]                          NVARCHAR (2000) NULL,
+    [CustomFeesFreeText]                 NVARCHAR (2000) NULL,
     [CustomIndigenousEmergencyServices]  NVARCHAR (2000) NULL,
     [CustomServicesToLGBTQ]              NVARCHAR (2000) NULL,
     [CustomAutomatedStatus]              NVARCHAR (2000) NULL,
@@ -183,11 +184,14 @@
     [CustomSuggestKeyword]               NVARCHAR (MAX)  NULL,
     [CustomRecordType]                   NVARCHAR (2000) NULL,
     [CustomSourceDatabase]               NVARCHAR (2000) NULL,
+    [CustomVulnerablePopulation]         NVARCHAR (2000) NULL,
     [changedDate]                        NVARCHAR (2000) NULL,
     [createdDate]                        NVARCHAR (2000) CONSTRAINT [DF_ETLLoadError_createdDate] DEFAULT (getdate()) NULL,
     [ErrorCode]                          NVARCHAR (2000) NULL,
     [ErrorColumn]                        NVARCHAR (2000) NULL
 );
+
+
 
 
 

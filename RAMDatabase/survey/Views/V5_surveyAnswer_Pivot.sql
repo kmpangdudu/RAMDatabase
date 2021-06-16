@@ -1,5 +1,6 @@
 ﻿
 
+
 CREATE  VIEW [survey].[V5_surveyAnswer_Pivot]
 as
  
@@ -114,7 +115,7 @@ max( [language] ) as [Site_Language],
 max(surveyAnswer_Device) as [Device],
 max(surveyAnswer_createdDate) as [surveyAnswer_Date]
 from survey.surveyAnswer
-where surveyAnswer_createdDate > '2021-03-01' and chatID !=1234567890 and chatID > 1350000
+where surveyAnswer_createdDate > '2021-04-08' and chatID !=1234567890 and chatID > 1374513
 group by CHATID
 ),
 CTE2 as

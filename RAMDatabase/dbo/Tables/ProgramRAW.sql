@@ -77,3 +77,30 @@
     CONSTRAINT [FK_ProgramRAW_TaxonomyLevelName] FOREIGN KEY ([TaxonomyLevelNameID]) REFERENCES [dbo].[TaxonomyLevelName] ([TaxonomyLevelNameID])
 );
 
+
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-171749]
+    ON [dbo].[ProgramRAW]([CustomRecordType] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-171720]
+    ON [dbo].[ProgramRAW]([ConnectsToProgramNum] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-171627]
+    ON [dbo].[ProgramRAW]([ConnectsToSiteNum] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-171501]
+    ON [dbo].[ProgramRAW]([ResourceAgencyNum] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-171431]
+    ON [dbo].[ProgramRAW]([ETLLoadID] ASC);
+

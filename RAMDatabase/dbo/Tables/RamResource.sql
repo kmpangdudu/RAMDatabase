@@ -43,6 +43,8 @@
 
 
 
+
+
 GO
 CREATE NONCLUSTERED INDEX [NonClusteredIndex-Language ]
     ON [dbo].[RamResource]([LanguageOfRecord] ASC)
@@ -53,4 +55,34 @@ GO
 CREATE NONCLUSTERED INDEX [NonClusteredIndex-ELTID]
     ON [dbo].[RamResource]([ETLLoadID] ASC)
     INCLUDE([Map], [TaxonomyLevelNameID], [SubCategoryID], [TOPCategoryID], [PhysicalCityID], [PhysicalProvinceID], [LanguageOfRecord]);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-172457]
+    ON [dbo].[RamResource]([Phone] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-172403]
+    ON [dbo].[RamResource]([IsHelpline] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-172302]
+    ON [dbo].[RamResource]([PhysicalProvinceID] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-172229]
+    ON [dbo].[RamResource]([PhysicalCityID] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-165041]
+    ON [dbo].[RamResource]([SubCategoryID] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-165015]
+    ON [dbo].[RamResource]([TOPCategoryID] ASC);
 

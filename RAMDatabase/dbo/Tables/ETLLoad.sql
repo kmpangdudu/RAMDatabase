@@ -184,7 +184,7 @@
     [CustomSuggestKeyword]               NVARCHAR (MAX)   NULL,
     [CustomRecordType]                   NVARCHAR (2000)  NULL,
     [CustomSourceDatabase]               NVARCHAR (2000)  NULL,
-    [CustomVulnerablePopulation]         NVARCHAR (2000)  NULL,
+    [CustomTargetPopulation]             NVARCHAR (2000)  NULL,
     [changedDate]                        DATETIME         NULL,
     [createdDate]                        DATETIME         CONSTRAINT [DF_ETLLoad_createdDate] DEFAULT (getdate()) NULL,
     CONSTRAINT [PK_ETLLoad] PRIMARY KEY CLUSTERED ([ETLLoadID] ASC)
@@ -193,4 +193,31 @@
 
 
 
+
+
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-170200]
+    ON [dbo].[ETLLoad]([ConnectsToProgramNum] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-170129]
+    ON [dbo].[ETLLoad]([ConnectsToSiteNum] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-170056]
+    ON [dbo].[ETLLoad]([TaxonomyCodes] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-170030]
+    ON [dbo].[ETLLoad]([CustomRecordType] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-165944]
+    ON [dbo].[ETLLoad]([TaxonomyLevelName] ASC);
 

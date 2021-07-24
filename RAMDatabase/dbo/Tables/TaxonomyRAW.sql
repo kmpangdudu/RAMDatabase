@@ -77,3 +77,45 @@
     CONSTRAINT [FK_TaxonomyRAW_TaxonomyLevelName] FOREIGN KEY ([TaxonomyLevelNameID]) REFERENCES [dbo].[TaxonomyLevelName] ([TaxonomyLevelNameID])
 );
 
+
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-173310]
+    ON [dbo].[TaxonomyRAW]([PhysicalCityID] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-173226]
+    ON [dbo].[TaxonomyRAW]([PhysicalProvinceID] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-173154]
+    ON [dbo].[TaxonomyRAW]([TaxonomyLevelNameID] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-173036]
+    ON [dbo].[TaxonomyRAW]([ConnectsToProgramNum] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-172945]
+    ON [dbo].[TaxonomyRAW]([ConnectsToSiteNum] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-172910]
+    ON [dbo].[TaxonomyRAW]([CustomRecordType] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-172839]
+    ON [dbo].[TaxonomyRAW]([ResourceAgencyNum] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [NonClusteredIndex-20210724-172809]
+    ON [dbo].[TaxonomyRAW]([ETLLoadID] ASC);
+

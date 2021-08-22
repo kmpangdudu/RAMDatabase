@@ -3,7 +3,7 @@
 -- Create date: Feb.14, 2016
 -- Description:	Get province list by language
 -- =============================================
-CREATE PROCEDURE [dbo].[getProvince]
+CREATE PROCEDURE [dbo].[p141]
  @lang nvarchar(10) = N'en',
  @token NVARCHAR(50)
 AS
